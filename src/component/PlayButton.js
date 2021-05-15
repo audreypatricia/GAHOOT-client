@@ -9,7 +9,7 @@ class PlayButton extends Component {
     console.log(props)
   }
 
-  const _handleQuizSelection = (event) => {
+  _handleQuizSelection = (event) => {
     console.log(event);
     let quiz = event.target.value
     this.setState({selectedQuiz: quiz });
