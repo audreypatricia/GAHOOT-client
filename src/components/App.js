@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import GamePlayPage from "./pages/GamePlayPage";
 import GameStartPage from "./pages/GameStartPage";
 import HostSignInPage from "./pages/HostSignInPage";
+import HostSignUpPage from "./pages/HostSignUpPage";
 import PlayerSignInPage from "./pages/PlayerSignInPage";
 import QuizCreatePage from "./pages/QuizCreatePage";
 import QuizIndexPage from "./pages/QuizIndexPage";
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/gameplay" component={GamePlayPage} />;
           <Route exact path="/gamestart" component={GameStartPage} />;
           <Route exact path="/host-sign-in" component={HostSignInPage} />;
+          <Route exact path="/host-sign-up" component={HostSignUpPage} />;
           <Route exact path="/player-sign-in" component={PlayerSignInPage} />;
           <Route exact path="/quiz-create" component={QuizCreatePage} />;
           <Route exact path="/quiz-index" component={QuizIndexPage} />;

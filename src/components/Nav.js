@@ -10,6 +10,7 @@ class Nav extends Component {
           <Link to="/gameplay">Game Play | </Link>
           <Link to="/gamestart">Game Start | </Link>
           <Link to="/host-sign-in">Host Sign In | </Link>
+          <Link to="/host-sign-up">Host Sign Up | </Link>
           <Link to="/player-sign-in">Player Sign In | </Link>
           <Link to="/quiz-create">New Quiz | </Link>
           <Link to="/quiz-index">Quizzes | </Link>
