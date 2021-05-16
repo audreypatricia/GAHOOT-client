@@ -1,0 +1,10 @@
+.QuizItem {
+  background-color: lightblue;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 1em;
+}
+
+.button{
+    padding-left: 70vw;
+}

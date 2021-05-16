@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import QuizItem from "./QuizItem"
-
-function App() {
-  return (
-    <div className="App">
-        <QuizItem />
-    </div>
-=======
 import React from "react";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -35,9 +26,7 @@ function App() {
         </Switch>
       </div>
     </Router>
->>>>>>> 772921567c50a040f26aa97408b5ac6ed04f71ea
   );
 }
 
 export default App;
-
