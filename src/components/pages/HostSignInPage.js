@@ -1,30 +1,80 @@
-import React, { Component } from 'react';
-import axios from 'axios'
-import {Link} from 'react-router-dom'
+import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
 class HostSigInPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      username: '',
-      email: '',
-      password: '',
-      errors: ''
-     };
+    this.state = {
+      username: "",
+      email: "",
+      password: "",
+      errors: "",
+    };
   }
-_handleChange = (event) => {
-    const {name, value} = event.target
+
+  componentWillMount() {
+    return this.props.loggedInStatus ? this.redirect() : null;
+  }
+
+  _handleChange = (event) => {
+    const { name, value } = event.target;
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
   };
-_handleSubmit = (event) => {
-    event.preventDefault()
+
+  _handleSubmit = (event) => {
+    event.preventDefault();
+    const { username, email, password } = this.state;
+
+    let user = {
+      username: username,
+      email: email,
+      password: password,
+    };
+
+    axios
+      .post(
+        "https://gahoot-server.herokuapp.com/login",
+        { user },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        if (response.data.logged_in) {
+          this.props.handleLogin(response.data);
+          this.redirect();
+        } else {
+          this.setState({
+            errors: response.data.errors,
+          });
+        }
+      })
+      .catch((error) => console.log("api errors:", error));
   };
-render() {
-    const {username, email, password} = this.state
-return (
+
+  redirect = () => {
+    this.props.history.push("/");
+  };
+
+  _handleErrors = () => {
+    return (
       <div>
-        <h1>Log In</h1>
+        <ul>
+          {this.state.errors.map((error) => {
+            return <li key={error}>{error}</li>;
+          })}
+        </ul>
+      </div>
+    );
+  };
+
+  render() {
+    const { username, email, password } = this.state;
+
+    return (
+      <div>
+        <h1>Host Sign In</h1>
         <form onSubmit={this._handleSubmit}>
           <input
             placeholder="username"
@@ -47,16 +97,20 @@ return (
             value={password}
             onChange={this._handleChange}
           />
-         <button placeholder="submit" type="submit">
-            Log In
+
+          <button placeholder="submit" type="submit">
+            Host Log In
           </button>
+
           <div>
-            or <Link to='/signup'>sign up</Link>
+            or <Link to="/host-sign-up">sign up</Link>
           </div>
-          
-         </form>
+
+        </form>
+        <div>{this.state.errors ? this._handleErrors() : null}</div>
       </div>
     );
   }
 }
+
 export default HostSigInPage;

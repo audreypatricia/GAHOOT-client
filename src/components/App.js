@@ -22,9 +22,11 @@ class App extends Component {
     this._handleLogin = this._handleLogin.bind(this);
     this._handleLogout = this._handleLogout.bind(this);
   }
+
   componentDidMount() {
     this.loginStatus();
   }
+
   loginStatus = () => {
     axios
       .get("https://gahoot-server.herokuapp.com/logged_in", {
@@ -39,29 +41,62 @@ class App extends Component {
       })
       .catch((error) => console.log("api errors:", error));
   };
+
   _handleLogin = (data) => {
     this.setState({
       isLoggedIn: true,
       user: data.user,
     });
   };
+
   _handleLogout = () => {
     this.setState({
       isLoggedIn: false,
       user: {},
     });
   };
+  
   render() {
     return (
       <Router>
         <div>
           <Nav />
           <Switch>
-            <Route exact path="/" component={HomePage} />;
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <HomePage
+                  {...props}
+                  handleLogout={this._handleLogout}
+                  loggedInStatus={this.state.isLoggedIn}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/host-sign-in"
+              render={(props) => (
+                <HostSignInPage
+                  {...props}
+                  handleLogin={this._handleLogin}
+                  loggedInStatus={this.state.isLoggedIn}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/host-sign-up"
+              render={(props) => (
+                <HostSignUpPage
+                  {...props}
+                  handleLogin={this._handleLogin}
+                  loggedInStatus={this.state.isLoggedIn}
+                />
+              )}
+            />
             <Route exact path="/gameplay" component={GamePlayPage} />;
             <Route exact path="/gamestart" component={GameStartPage} />;
-            <Route exact path="/host-sign-in" component={HostSignInPage} />;
-            <Route exact path="/host-sign-up" component={HostSignUpPage} />;
             <Route exact path="/player-sign-in" component={PlayerSignInPage} />;
             <Route exact path="/quiz-create" component={QuizCreatePage} />;
             <Route exact path="/quiz-index" component={QuizIndexPage} />;
