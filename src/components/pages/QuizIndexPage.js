@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CreateQuizButton from '../CreateQuizButton'
+import QuizItem from '../QuizItem/QuizItem'
 
 class QuizIndexPage extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class QuizIndexPage extends Component {
         <div>
           <h1>Quiz index</h1>
           <CreateQuizButton />
+          <QuizItem />
 
         </div>
       );
