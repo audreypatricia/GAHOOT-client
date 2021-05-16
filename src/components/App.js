@@ -8,7 +8,7 @@ import HostSignUpPage from "./pages/HostSignUpPage";
 import PlayerSignInPage from "./pages/PlayerSignInPage";
 import QuizCreatePage from "./pages/QuizCreatePage";
 import QuizIndexPage from "./pages/QuizIndexPage";
-import QuizItem from "./QuizItem";
+// import QuizItem from "./QuizItem";
 import Nav from "./Nav";
 import axios from "axios";
 
@@ -32,9 +32,9 @@ class App extends Component {
       })
       .then((response) => {
         if (response.data.logged_in) {
-          this.handleLogin(response);
+          this._handleLogin(response);
         } else {
-          this.handleLogout();
+          this._handleLogout();
         }
       })
       .catch((error) => console.log("api errors:", error));
@@ -66,7 +66,7 @@ class App extends Component {
             <Route exact path="/quiz-create" component={QuizCreatePage} />;
             <Route exact path="/quiz-index" component={QuizIndexPage} />;
           </Switch>
-          <QuizItem />
+          {/* <QuizItem /> */}
         </div>
       </Router>
     );
