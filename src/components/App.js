@@ -47,6 +47,7 @@ class App extends Component {
       isLoggedIn: true,
       user: data.user,
     });
+    console.log(this.state.user)
   };
 
   _handleLogout = () => {
