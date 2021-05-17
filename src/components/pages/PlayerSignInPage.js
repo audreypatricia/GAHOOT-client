@@ -40,23 +40,29 @@ class PlayerSignInPage extends Component {
 
     console.log(user);
 
-    axios
-      .post(
-        "https://gahoot-server.herokuapp.com/users",
-        { user },
-        { withCredentials: true }
-      )
-      .then((response) => {
-        if (response.data.status === "created") {
-          this.props.handleLogin(response.data);
-          this.redirect();
-        } else {
-          this.setState({
-            errors: response.data.errors,
-          });
-        }
-      })
-      .catch((error) => console.log("api errors:", error));
+    const random_pin = "nice";
+
+    if (this.state.pin === random_pin) {
+      axios
+        .post(
+          "https://gahoot-server.herokuapp.com/users",
+          { user },
+          { withCredentials: true }
+        )
+        .then((response) => {
+          if (response.data.status === "created") {
+            this.props.handleLogin(response.data);
+            this.redirect();
+          } else {
+            this.setState({
+              errors: response.data.errors,
+            });
+          }
+        })
+        .catch((error) => console.log("api errors:", error));
+    } else {
+        alert("pin not valid");
+    }
   };
 
   redirect = () => {
