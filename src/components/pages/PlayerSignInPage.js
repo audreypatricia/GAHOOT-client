@@ -13,7 +13,19 @@ class PlayerSignInPage extends Component {
       host: false,
       pin: "",
       errors: "",
+      pins: [],
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get("https://gahoot-server.herokuapp.com/games.json")
+      .then((response) => {
+        for (let i = 0; i < response.data.length; i++) {
+          this.setState({ pins: [...this.state.pins, response.data[i].pin] });
+          console.log(this.state.pins);
+        }
+      });
   }
 
   _handleChange = (event) => {
@@ -40,9 +52,9 @@ class PlayerSignInPage extends Component {
 
     console.log(user);
 
-    const random_pin = "nice";
+    // const random_pin = "nice";
 
-    if (this.state.pin === random_pin) {
+    if (this.state.pins.indexOf(this.state.pin) !== -1) {
       axios
         .post(
           "https://gahoot-server.herokuapp.com/users",
@@ -61,7 +73,7 @@ class PlayerSignInPage extends Component {
         })
         .catch((error) => console.log("api errors:", error));
     } else {
-        alert("pin not valid");
+      alert("pin not valid");
     }
   };
 
