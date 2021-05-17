@@ -11,12 +11,13 @@ class QuizCreatePage extends Component {
       }
 
       this.createQuiz = this.createQuiz.bind(this);
+      this.createQuestions = this.createQuestions.bind(this);
     }
 
     createQuiz(title, category, username){
         // get user_id of the person creating the quiz
         // to be changed to heroku link: https://gahoot-server.herokuapp.com/users.json
-      axios.get('http://localhost:3001/users.json').then((response) => {
+      axios.get('https://gahoot-server.herokuapp.com/users.json').then((response) => {
         console.log(response.data);
         let users = response.data;
 
@@ -34,7 +35,7 @@ class QuizCreatePage extends Component {
           user_id: this.state.user_id
         };
 
-        axios.post('http://localhost:3001/quizzes.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
+        axios.post('https://gahoot-server.herokuapp.com/quizzes.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
         .catch(error => {
           console.log(error.message);
         })
@@ -42,7 +43,23 @@ class QuizCreatePage extends Component {
 
       });
 
-}
+    }
+
+    createQuestions(question, image, answer_options, quiz_id){
+
+      const data = {
+        question: question,
+        image: image,
+        answer_options: answer_options,
+
+      }
+
+      console.log(data);
+      axios.post('https://gahoot-server.herokuapp.com/questions.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
+      .catch(error => {
+        console.log(error.message);
+      })
+    }
 
     render() {
       return (
