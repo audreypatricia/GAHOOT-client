@@ -27,7 +27,6 @@ componentDidMount(){
 createGame() {
   axios.post(SERVER_URL, { pin: this.state.gamePin, quiz_id: this.state.selectedQuiz }).then((response) => { this.setState({ game: response.data })
 })
-
 }
 
   render() {
