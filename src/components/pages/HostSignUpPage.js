@@ -56,7 +56,7 @@ class HostSigUpPage extends Component {
   };
 
   redirect = () => {
-    this.props.history.push("/");
+    this.props.history.push("/quiz-index");
   };
 
   _handleErrors = () => {

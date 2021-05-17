@@ -66,7 +66,7 @@ class PlayerSignInPage extends Component {
   };
 
   redirect = () => {
-    this.props.history.push("/");
+    this.props.history.push("/gamestart");
   };
 
   _handleErrors = () => {
