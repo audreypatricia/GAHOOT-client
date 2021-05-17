@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-// const SERVER_URL = 'https://gahoot-server.herokuapp.com/games.json';
-const SERVER_URL = "http://localhost:3001/games.json"
+const SERVER_URL = 'https://gahoot-server.herokuapp.com/games.json';
 
 class PinBox extends Component {
   constructor(props){
