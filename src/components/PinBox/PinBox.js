@@ -24,6 +24,7 @@ class PinBox extends Component {
       <div className="PinBox">
       <h4> Game Pin: </h4>
       <p> { this.gamePin } </p>
+
       </div>
     );
   }
