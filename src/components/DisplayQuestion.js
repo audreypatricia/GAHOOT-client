@@ -4,7 +4,6 @@ class DisplayQuestion extends Component {
   render() {
     return(
       <div>
-      {console.log(this.props.questions)}
         <h1>{this.props.questions.question}</h1>
 
         <img alt="coming soon"/>
