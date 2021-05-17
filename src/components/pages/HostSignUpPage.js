@@ -34,6 +34,8 @@ class HostSigUpPage extends Component {
       host: host
     };
 
+    console.log(user);
+
     axios
       .post(
         "https://gahoot-server.herokuapp.com/users",
