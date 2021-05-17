@@ -48,7 +48,7 @@ class App extends Component {
       isLoggedIn: true,
       user: data.user,
     });
-    console.log(this.state.user)
+    console.log(this.state.user);
   };
 
   _handleLogout = () => {
@@ -91,6 +91,17 @@ class App extends Component {
               path="/host-sign-up"
               render={(props) => (
                 <HostSignUpPage
+                  {...props}
+                  handleLogin={this._handleLogin}
+                  loggedInStatus={this.state.isLoggedIn}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/player-sign-in"
+              render={(props) => (
+                <PlayerSignInPage
                   {...props}
                   handleLogin={this._handleLogin}
                   loggedInStatus={this.state.isLoggedIn}
