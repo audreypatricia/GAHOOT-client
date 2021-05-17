@@ -1,19 +1,52 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 class Nav extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  _handleClick = () => {
+    axios
+      .delete("https://gahoot-server.herokuapp.com/logout", {
+        withCredentials: true,
+      })
+      .then((response) => {
+        this.props.handleLogout();
+        this.props.history.push("/");
+      })
+      .catch((error) => console.log(error));
+  };
+
   render() {
+    console.log(this.props.isLoggedIn);
     return (
       <nav>
         <div className="navlink">
           <Link to="/"> Home | </Link>
           <Link to="/gameplay">Game Play | </Link>
           <Link to="/gamestart">Game Start | </Link>
-          <Link to="/host-sign-in">Host Sign In | </Link>
-          <Link to="/host-sign-up">Host Sign Up | </Link>
-          <Link to="/player-sign-in">Player Sign In | </Link>
-          <Link to="/quiz-create">New Quiz | </Link>
-          <Link to="/quiz-index">Quizzes | </Link>
+          {!this.props.isLoggedIn ? (
+            <Link to="/host-sign-in">Host Sign In | </Link>
+          ) : null}
+          {!this.props.isLoggedIn ? (
+            <Link to="/host-sign-up">Host Sign Up | </Link>
+          ) : null}
+          {!this.props.isLoggedIn ? (
+            <Link to="/player-sign-in">Player Sign In | </Link>
+          ) : null}
+          {this.props.isLoggedIn && this.props.isHost ? (
+            <Link to="/quiz-create">New Quiz | </Link>
+          ) : null}
+          {this.props.isLoggedIn && this.props.isHost ? (
+            <Link to="/quiz-index">Quizzes | </Link>
+          ) : null}
+          {this.props.isLoggedIn ? (
+            <Link to="/logout" onClick={this._handleClick}>
+              Log Out
+            </Link>
+          ) : null}
         </div>
       </nav>
     );
