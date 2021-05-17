@@ -49,6 +49,7 @@ class HostSigInPage extends Component {
             errors: response.data.errors,
           });
         }
+        console.log(response);
       })
       .catch((error) => console.log("api errors:", error));
   };
