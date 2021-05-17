@@ -99,6 +99,7 @@ class App extends Component {
             />
             <Route exact path="/gameplay" component={GamePlayPage} />;
             <Route exact path="/gamestart" component={GameStartPage} />;
+            <Route path="/gamestart/:id" component={GameStartPage} />;
             <Route exact path="/player-sign-in" component={PlayerSignInPage} />;
             <Route exact path="/quiz-create" component={QuizCreatePage} />;
             <Route exact path="/quiz-index" component={QuizIndexPage} />;
