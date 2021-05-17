@@ -9,6 +9,7 @@ class HostSigUpPage extends Component {
       email: "",
       password: "",
       password_confirmation: "",
+      host: true,
       errors: "",
     };
   }
@@ -23,13 +24,14 @@ class HostSigUpPage extends Component {
   _handleSubmit = (event) => {
     event.preventDefault();
 
-    const { username, email, password, password_confirmation } = this.state;
+    const { username, email, password, password_confirmation, host } = this.state;
 
     let user = {
       username: username,
       email: email,
       password: password,
       password_confirmation: password_confirmation,
+      host: host
     };
 
     axios
