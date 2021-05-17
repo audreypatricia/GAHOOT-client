@@ -48,7 +48,7 @@ class App extends Component {
       isLoggedIn: true,
       user: data.user,
     });
-    console.log(this.state.user)
+    console.log(this.state.user);
   };
 
   _handleLogout = () => {
@@ -97,9 +97,19 @@ class App extends Component {
                 />
               )}
             />
+            <Route
+              exact
+              path="/player-sign-in"
+              render={(props) => (
+                <PlayerSignInPage
+                  {...props}
+                  handleLogin={this._handleLogin}
+                  loggedInStatus={this.state.isLoggedIn}
+                />
+              )}
+            />
             <Route exact path="/gameplay" component={GamePlayPage} />;
             <Route exact path="/gamestart" component={GameStartPage} />;
-            <Route exact path="/player-sign-in" component={PlayerSignInPage} />;
             <Route exact path="/quiz-create" component={QuizCreatePage} />;
             <Route exact path="/quiz-index" component={QuizIndexPage} />;
           </Switch>
