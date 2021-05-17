@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './QuizItem.style.css'
 import axios from 'axios'
 
@@ -18,17 +19,17 @@ class QuizItem extends Component {
         this.setState({ quizzes: results.data });
       });
     }
-  fetchQuizzes();
+    fetchQuizzes();
   }
 
   render(){
     return(
-      <div className='QuizItem'>
+      <div className='QuizItems'>
       { this.state.quizzes.map((e) => (
-        <div key={e.id}>
+        <div className="Quiz" key={e.id}>
         <form>
         <h3> Quiz: { e.title } </h3>
-          <PlayButton onClick={ e.id }/>
+          <PlayButton id={ e.id }/>
         </form>
         </div>
       )) }
@@ -41,23 +42,14 @@ class PlayButton extends Component {
   constructor(props){
     super(props);
     this.state = {
-      selectedQuizId: this.props.onClick
+      selectedQuizId: this.props.id
     }
-  }
-
-  componentDidMount() {
-    const fetchQuizzes = () => {
-      axios.get(SERVER_URL).then((results) => {
-        this.setState({ quizzes: results.data });
-      });
-    }
-  fetchQuizzes();
   }
 
   render(){
     return (
       <div className="button">
-    <input type="button" value="Play"/>
+    <Link to={"gamestart/" + this.props.id }>Play</Link>
     </div>
       )
    }

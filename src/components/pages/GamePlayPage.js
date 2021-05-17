@@ -5,9 +5,9 @@ class GamePlayPage extends Component {
         super(props);
         this.state = {  }
     }
-    render() { 
+    render() {
         return ( <div><h1>Gameplay</h1></div> );
     }
 }
- 
+
 export default GamePlayPage;
