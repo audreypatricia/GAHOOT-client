@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import '../stylesheets/Nav.css'
 
 class Nav extends Component {
   constructor(props) {
@@ -14,15 +15,19 @@ class Nav extends Component {
       })
       .then((response) => {
         this.props.handleLogout();
-        this.props.history.push("/");
+        this.redirect();
       })
       .catch((error) => console.log(error));
+  };
+
+  redirect = () => {
+    this.props.history.push("/host-sign-in");
   };
 
   render() {
     console.log(this.props.isLoggedIn);
     return (
-      <nav>
+      <nav className="nav">
         <div className="navlink">
           <Link to="/"> Home | </Link>
           {/* <Link to="/gameplay">Game Play | </Link>
