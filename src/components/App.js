@@ -56,13 +56,22 @@ class App extends Component {
       isLoggedIn: false,
       user: {},
     });
+    this.redirect();
+  };
+
+  redirect = () => {
+    this.props.history.push("/");
   };
 
   render() {
     return (
       <Router>
         <div>
-          <Nav />
+          <Nav
+            isLoggedIn={this.state.isLoggedIn}
+            isHost={this.state.user.host}
+            handleLogout={this._handleLogout}
+          />
           <Switch>
             <Route
               exact

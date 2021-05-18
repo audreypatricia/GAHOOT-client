@@ -11,7 +11,7 @@ class GameStartPage extends Component {
         return (
           <div>
           <h1>Game start</h1>
-          <PinBox />
+          <PinBox quiz_id={this.props.match.params.id}/>
           <StartGameButton quiz_id={this.props.match.params.id}/>
           </div> );
     }
