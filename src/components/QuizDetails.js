@@ -24,7 +24,7 @@ class QuizDetails extends Component {
   }
 
   render() {
-    console.log(`quiz details User ID: ${this.props.UserID}`)
+    console.log(`quiz details User : ${this.props.user}`)
     return(
       <form onSubmit={this._handleSubmit}>
         <label>
@@ -39,7 +39,7 @@ class QuizDetails extends Component {
             <option value="education">Education</option>
             <option value="trivia">Trivia</option>
           </select>
-        Creator:{this.props.UserID}
+        Creator:{this.props.user}
 
         </label>
 

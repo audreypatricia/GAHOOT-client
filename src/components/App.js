@@ -134,10 +134,9 @@ class App extends Component {
             <Route exact path="/player-sign-in" component={PlayerSignInPage} />
             <Route exact path="/quiz-create"
               render={(props) => (
-                <QuizCreatePage
-                  {...props}
-                  UserID={this.state.user.id}
-                />
+              <QuizCreatePage {...props}
+               user={ this.state.user }
+               />
               )}
               />;
             <Route exact path="/quiz-index" component={QuizIndexPage} />;
