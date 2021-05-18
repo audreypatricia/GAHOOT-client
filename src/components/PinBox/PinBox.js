@@ -68,7 +68,7 @@ class PinBox extends Component {
   render() {
       // console.log(this.state.game === '');
       // if(this.state.game === ''){return};
-      console.log(this.state.game);
+
     return(
       <div className="PinBox-component">
       <div className="PinBox">
@@ -79,7 +79,6 @@ class PinBox extends Component {
       <div className="WaitingRoom">
 
         <h3> Players </h3>
-
 
       </div>
       </div>
