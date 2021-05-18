@@ -5,9 +5,12 @@ import { Link, Route } from 'react-router-dom';
 class GameStartPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+        host: this.props.user
+      }
     }
     render() {
+      console.log("Props are: ", this.props.user);
         return (
           <div>
           <h1>Game start</h1>

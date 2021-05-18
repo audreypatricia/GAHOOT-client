@@ -9,7 +9,8 @@ class QuizItem extends Component {
   constructor(){
     super();
     this.state = {
-      quizzes: []
+      quizzes: [],
+      // host: this.props.user,
     };
   }
 
@@ -20,6 +21,7 @@ class QuizItem extends Component {
       });
     }
     fetchQuizzes();
+    console.log(this.state.host)
   }
 
   render(){
