@@ -10,7 +10,6 @@ class GameStartPage extends Component {
       }
     }
     render() {
-      console.log('GameStart host: ', this.state.host)
         return (
           <div>
           <h1>Game start</h1>
