@@ -89,6 +89,7 @@ class QuizQuestions extends Component {
     // form.append("question", this.state.question);
     // form.append("answer_options", this.state.answer_options);
     let questionsCopy = this.state.questions.slice(0);
+    console.log(questionsCopy);
     let questionData = [];
 
     for(let i = 0; i < questionsCopy.length; i++){
@@ -107,8 +108,25 @@ class QuizQuestions extends Component {
 
     console.log(questionData);
 
+    let questionsCopy2 = this.state.questions.slice(0);
+
+    let imageArray = [];
+    for(let i = 0; i < questionsCopy2.length; i++){
+      if(questionsCopy2[i].image !== ""){
+        imageArray.push(questionsCopy2[i].image);
+      }
+    }
+
+    console.log(imageArray);
+
     const form = new FormData();
-    form.append("quiz", JSON.stringify(this.state.quiz));
+
+    for (let i = 0; i < imageArray.length; i++) {
+      form.append('image[]', imageArray[i]);
+    }
+
+
+
     form.append("questions", JSON.stringify(questionData));
 
 
@@ -132,11 +150,12 @@ class QuizQuestions extends Component {
   }
 
   render() {
+    console.log(`quiz questions User ID:${this.props.UserID}`);
     return(
       <div>
         <form onSubmit={this.createQuestion}>
 
-          <QuizDetails onChange={this._handleQuizChange}/>
+          <QuizDetails onChange={this._handleQuizChange} UserID={this.props.UserID}/>
 
           <Question onChange={this._handleChange} onUpload={this._onChange} value="1"/>
           <Question onChange={this._handleChange} onUpload={this._onChange} value="2"/>
