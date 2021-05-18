@@ -22,6 +22,7 @@ class Nav extends Component {
 
   redirect = () => {
     this.props.history.push("/host-sign-in");
+    console.log("hi")
   };
 
   render() {
