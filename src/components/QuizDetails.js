@@ -13,7 +13,8 @@ class QuizDetails extends Component {
   }
 
   _handleChange(event){
-    this.setState({[event.target.name]: event.target.value })
+    // this.setState({[event.target.name]: event.target.value })
+    this.props.onChange(event);
   }
 
   _handleSubmit(event){
@@ -39,12 +40,13 @@ class QuizDetails extends Component {
           </select>
         Creator:
           <input onChange={this._handleChange} name="username" placeholder="your username" />
-          <input type="submit"/>
+
         </label>
 
       </form>
     );
   }
 }
+  // <input type="submit"/>
 
 export default QuizDetails;

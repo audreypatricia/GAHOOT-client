@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PinBox from '../PinBox/PinBox'
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class GameStartPage extends Component {
     constructor(props) {
