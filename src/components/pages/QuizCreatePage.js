@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import QuizQuestion from '../QuizQuestion';
+import QuizQuestions from '../QuizQuestions';
 import QuizDetails from '../QuizDetails';
 import axios from 'axios';
 
@@ -9,7 +9,6 @@ class QuizCreatePage extends Component {
       this.state = {
         user_id: 1,
       }
-
       this.createQuiz = this.createQuiz.bind(this);
       this.createQuestions = this.createQuestions.bind(this);
     }
@@ -62,14 +61,16 @@ class QuizCreatePage extends Component {
     }
 
     render() {
+      console.log(this.props);
       return (
         <div>
           <h1>Quiz create</h1>
-          <QuizDetails onSubmit={this.createQuiz}/>
-          <QuizQuestion />
+
+          <QuizQuestions />
         </div>
       );
     }
 }
 
 export default QuizCreatePage;
+// <QuizDetails onSubmit={this.createQuiz}/>
