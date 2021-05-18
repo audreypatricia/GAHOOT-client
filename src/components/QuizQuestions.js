@@ -127,7 +127,6 @@ class QuizQuestions extends Component {
 
 
 
-    form.append("quiz", JSON.stringify(this.state.quiz));
     form.append("questions", JSON.stringify(questionData));
 
 
