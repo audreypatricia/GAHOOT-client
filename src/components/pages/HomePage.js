@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import Scoreboard from '../Scoreboard/Scoreboard';
 
 class HomePage extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class HomePage extends Component {
         <br />
         <Link to="/host-sign-up">Host Sign Up</Link>
         <br />
+
       </div>
     );
   }
