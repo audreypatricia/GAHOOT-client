@@ -151,11 +151,12 @@ class QuizQuestions extends Component {
   }
 
   render() {
+    console.log(`quiz questions User ID:${this.props.UserID}`);
     return(
       <div>
         <form onSubmit={this.createQuestion}>
 
-          <QuizDetails onChange={this._handleQuizChange}/>
+          <QuizDetails onChange={this._handleQuizChange} UserID={this.props.UserID}/>
 
           <Question onChange={this._handleChange} onUpload={this._onChange} value="1"/>
           <Question onChange={this._handleChange} onUpload={this._onChange} value="2"/>

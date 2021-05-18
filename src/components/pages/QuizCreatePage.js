@@ -62,11 +62,12 @@ class QuizCreatePage extends Component {
 
     render() {
       console.log(this.props);
+      console.log(this.props.UserID);
       return (
         <div>
           <h1>Quiz create</h1>
 
-          <QuizQuestions />
+          <QuizQuestions UserID={this.props.UserID}/>
         </div>
       );
     }
