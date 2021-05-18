@@ -25,8 +25,8 @@ class Nav extends Component {
       <nav>
         <div className="navlink">
           <Link to="/"> Home | </Link>
-          <Link to="/gameplay">Game Play | </Link>
-          <Link to="/gamestart">Game Start | </Link>
+          {/* <Link to="/gameplay">Game Play | </Link>
+          <Link to="/gamestart">Game Start | </Link> */}
           {!this.props.isLoggedIn ? (
             <Link to="/host-sign-in">Host Sign In | </Link>
           ) : null}
