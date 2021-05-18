@@ -14,16 +14,18 @@ class WaitingRoom extends Component {
   }
 
   componentDidMount(){
+
     const fetchPlayers = () => {
       // console.log("running fetchplayer");
         axios.get(SERVER_URL).then((results) => {
           const checkUserForPin = results.data
-          // console.log(results.data);
           console.log(this.state.game.pin)
-          // let result = checkUserForPin.filter((user) => user.pin===this.state.game.pin);
+          console.log(checkUserForPin);
+          // let result = checkUserForPin.filter((user) => user.pin === this.state.game.pin);
+
           // console.log(result);
           // this.setState({ players: result})
-          setTimeout(fetchPlayers, 2000);
+          // setTimeout(fetchPlayers, 2000);
         });
       }
       fetchPlayers();
@@ -33,6 +35,8 @@ class WaitingRoom extends Component {
 
 
   render(){
+    if(this.state.game === null ){ return; }
+
     return(
       <div>
       <h3> Players </h3>

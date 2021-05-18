@@ -4,6 +4,7 @@ import WaitingRoom from '../WaitingRoom/WaitingRoom'
 import './PinBox.style.css'
 
 const SERVER_URL = 'https://gahoot-server.herokuapp.com/games.json';
+const SERVER_USERS_URL = 'https://gahoot-server.herokuapp.com/users.json';
 
 class PinBox extends Component {
   constructor(props){
@@ -11,7 +12,7 @@ class PinBox extends Component {
     this.state ={
       gamePin: '',
       selectedQuiz: this.props.quiz_id,
-      game: {},
+      game: '',
       host: this.props.host
     }
     this.createGame = this.createGame.bind(this);
@@ -27,11 +28,36 @@ class PinBox extends Component {
   }
 
   createGame() {
-    axios.post(SERVER_URL, { pin: this.state.gamePin, quiz_id: this.state.selectedQuiz }).then((response) => { this.setState({ game: response.data })
+    axios.post(SERVER_URL, { pin: this.state.gamePin, quiz_id: this.state.selectedQuiz }).then((response) =>{
+      console.log(response);
+      this.setState({ game: response.data })
   })
+
+
+
+  const fetchPlayers = () => {
+    // console.log("running fetchplayer");
+      axios.get(SERVER_USERS_URL).then((results) => {
+        const checkUserForPin = results.data.users
+        console.log(this.state.game["pin"]);
+        console.log(checkUserForPin.pin);
+
+        let result = checkUserForPin.filter((user) => user.pin === this.state.game["pin"]);
+
+        console.log(result);
+        this.setState({ players: result})
+        setTimeout(fetchPlayers, 2000);
+      });
+    }
+    fetchPlayers();
+    console.log('Game: ', this.state.game);
+    console.log(this.state.players);
   }
 
   render() {
+      // console.log(this.state.game === '');
+      // if(this.state.game === ''){return};
+      console.log(this.state.game);
     return(
       <div className="PinBox-component">
       <div className="PinBox">
@@ -40,10 +66,14 @@ class PinBox extends Component {
       <input onClick={this.createGame} type='button' value="Create Game" />
       </div>
       <div className="WaitingRoom">
-      <WaitingRoom game={this.state.game} />
+
+        <h3> Players </h3>
+      
+
       </div>
       </div>
     );
   }
 }
 export default PinBox;
+  // <WaitingRoom game={this.state.game} />
