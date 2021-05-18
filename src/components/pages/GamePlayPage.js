@@ -20,10 +20,10 @@ class GamePlayPage extends Component {
 
 
     axios.get('https://gahoot-server.herokuapp.com/questions.json').then( (result) => {
-      console.log(result.data);
+      // console.log(result.data);
       let data = result.data;
       let questions = [];
-      console.log(this.state.quiz_id);
+      // console.log(this.state.quiz_id);
       for(let i = 0; i < data.length; i++) {
         if(data[i].quiz_id.toString() === this.state.quiz_id){
           questions.push(data[i]);
@@ -35,7 +35,7 @@ class GamePlayPage extends Component {
         activeQuestion: 0,
 
       });
-      console.log(questions);
+      // console.log(questions);
     })
 
 
@@ -43,7 +43,7 @@ class GamePlayPage extends Component {
 
   checkAnswer = (answer) => {
 // to check answer
-  console.log(this.state.roundOver);
+  // console.log(this.state.roundOver);
   this.setState({roundOver: true});
     if (answer == this.state.questions[this.state.activeQuestion].answer_options[4]) {
       console.log('You were right!');
