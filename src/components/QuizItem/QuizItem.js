@@ -9,7 +9,8 @@ class QuizItem extends Component {
   constructor(){
     super();
     this.state = {
-      quizzes: []
+      quizzes: [],
+      // host: this.props.user,
     };
   }
 
@@ -20,14 +21,15 @@ class QuizItem extends Component {
       });
     }
     fetchQuizzes();
+    console.log(this.state.host)
   }
 
   render(){
     return(
       <div className='QuizItems'>
       { this.state.quizzes.map((e) => (
-        <div className="Quiz" key={e.id}>
-        <form>
+        <div key={e.id}>
+        <form className="Quiz">
         <h3> Quiz: { e.title } </h3>
           <PlayButton id={ e.id }/>
         </form>

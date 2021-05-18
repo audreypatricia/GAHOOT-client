@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom';
 class GameStartPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+        host: this.props.user
+      }
     }
     render() {
+      console.log('GameStart host: ', this.state.host)
         return (
           <div>
           <h1>Game start</h1>
-          <PinBox quiz_id={this.props.match.params.id}/>
+          <PinBox quiz_id={ this.props.match.params.id } host={ this.state.host }/>
           <StartGameButton quiz_id={this.props.match.params.id}/>
           </div> );
     }

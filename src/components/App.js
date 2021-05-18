@@ -120,6 +120,16 @@ class App extends Component {
             <Route exact path="/gameplay" component={GamePlayPage} />;
             <Route path="/gameplay/:id" component={GamePlayPage} />;
             <Route exact path="/gamestart" component={GameStartPage} />;
+            <Route
+              path="/gamestart/:id"
+              render={(props) => (
+              <GameStartPage {...props}
+               user={ this.state.user }
+               />
+             )}
+             />
+            <Route exact path="/player-sign-in" component={PlayerSignInPage} />;
+            <Route exact path="/quiz-create" component={QuizCreatePage} />;
             <Route path="/gamestart/:id" component={GameStartPage} />;
             <Route exact path="/player-sign-in" component={PlayerSignInPage} />
             <Route exact path="/quiz-create"

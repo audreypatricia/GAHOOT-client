@@ -1,6 +1,6 @@
 import React from "react";
 export default function TimeCircle() {
-  const [timer, setTimer] = React.useState(30);
+  const [timer, setTimer] = React.useState(60);
   const id = React.useRef(null);
   const clear = () => {
     window.clearInterval(id.current);
