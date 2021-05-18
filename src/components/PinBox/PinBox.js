@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import WaitingRoom from '../WaitingRoom/WaitingRoom'
 import './PinBox.style.css'
 
 const SERVER_URL = 'https://gahoot-server.herokuapp.com/games.json';
