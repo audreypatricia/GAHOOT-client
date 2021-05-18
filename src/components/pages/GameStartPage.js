@@ -10,11 +10,11 @@ class GameStartPage extends Component {
       }
     }
     render() {
-      console.log("Props are: ", this.props.user);
+      console.log('GameStart host: ', this.state.host)
         return (
           <div>
           <h1>Game start</h1>
-          <PinBox quiz_id={this.props.match.params.id}/>
+          <PinBox quiz_id={ this.props.match.params.id } host={ this.state.host }/>
           <StartGameButton quiz_id={this.props.match.params.id}/>
           </div> );
     }

@@ -9,18 +9,26 @@ class WaitingRoom extends Component {
     super(props);
     this.state = {
       game: this.props.game,
-      host: this.props.user,
+      players: []
     }
   }
 
   componentDidMount(){
-    const fetchHost = () => {
+    const fetchPlayers = () => {
+      // console.log("running fetchplayer");
         axios.get(SERVER_URL).then((results) => {
+          const checkUserForPin = results.data
+          // console.log(results.data);
+          console.log(this.state.game.pin)
+          // let result = checkUserForPin.filter((user) => user.pin===this.state.game.pin);
+          // console.log(result);
+          // this.setState({ players: result})
+          setTimeout(fetchPlayers, 2000);
         });
       }
-      fetchHost();
+      fetchPlayers();
       console.log('Game: ', this.state.game);
-      console.log('Host: ', this.state.host);
+      console.log(this.state.players);
   }
 
 
@@ -28,7 +36,9 @@ class WaitingRoom extends Component {
     return(
       <div>
       <h3> Players </h3>
-      <h4> Host: </h4>
+      { this.state.players.map((p) => {
+        <li key={p[0]}>{p}</li>
+      })}
       </div>
     );
   }

@@ -11,7 +11,8 @@ class PinBox extends Component {
     this.state ={
       gamePin: '',
       selectedQuiz: this.props.quiz_id,
-      game: {}
+      game: {},
+      host: this.props.host
     }
     this.createGame = this.createGame.bind(this);
   }
@@ -31,7 +32,6 @@ class PinBox extends Component {
   }
 
   render() {
-    console.log(this.state.game)
     return(
       <div className="PinBox-component">
       <div className="PinBox">
