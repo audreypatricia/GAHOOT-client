@@ -46,7 +46,18 @@ class PinBox extends Component {
 
         console.log(result);
         this.setState({ players: result})
+
+        if(this.state.players !== ''){
+
+          axios.put(`https://gahoot-server.herokuapp.com/games/${this.state.game["id"]}.json`, {
+            players: JSON.stringify(result),
+          }).then((result) => {
+            console.log(result);
+          });
+        }
+
         setTimeout(fetchPlayers, 2000);
+
       });
     }
     fetchPlayers();
@@ -68,7 +79,7 @@ class PinBox extends Component {
       <div className="WaitingRoom">
 
         <h3> Players </h3>
-      
+
 
       </div>
       </div>

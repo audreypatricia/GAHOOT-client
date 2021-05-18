@@ -10,7 +10,8 @@ class GamePlayPage extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        quiz_id: this.props.match.params.id,
+        // quiz_id: this.props.match.params.id,
+        quiz_id: this.props.quiz_id,
         questions: [],
 
       }
@@ -26,7 +27,7 @@ class GamePlayPage extends Component {
         }
       }
 
-      this.setState({ 
+      this.setState({
         questions: questions,
         activeQuestion: 0,
       });
@@ -37,7 +38,7 @@ class GamePlayPage extends Component {
   }
 
   checkAnswer = (answer) => {
-    
+
     if (answer == this.state.questions[this.state.activeQuestion].answer_options[4]) {
       console.log('You were right!');
 
@@ -50,7 +51,7 @@ class GamePlayPage extends Component {
   };
 
   renderGame = () => {
-    
+
     if (this.state.activeQuestion === this.state.questions.length) {
       return <h1>You win!!!</h1>;
     }
