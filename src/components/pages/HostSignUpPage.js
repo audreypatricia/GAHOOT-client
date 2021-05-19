@@ -24,14 +24,15 @@ class HostSigUpPage extends Component {
   _handleSubmit = (event) => {
     event.preventDefault();
 
-    const { username, email, password, password_confirmation, host } = this.state;
+    const { username, email, password, password_confirmation, host } =
+      this.state;
 
     let user = {
       username: username,
       email: email,
       password: password,
       password_confirmation: password_confirmation,
-      host: host
+      host: host,
     };
 
     console.log(user);
@@ -75,43 +76,47 @@ class HostSigUpPage extends Component {
     const { username, email, password, password_confirmation } = this.state;
 
     return (
-      <div>
-        <h1>Host Sign Up</h1>
-        <form onSubmit={this._handleSubmit}>
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this._handleChange}
-          />
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={this._handleChange}
-          />
-          <input
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this._handleChange}
-          />
-          <input
-            placeholder="password confirmation"
-            type="password"
-            name="password_confirmation"
-            value={password_confirmation}
-            onChange={this._handleChange}
-          />
+      <div className="HostSignUpPage">
+        <div className="containerHostSignUpPage">
+          <h1>Host Sign Up</h1>
+          <div className="HostSignUpForm">
+            <form onSubmit={this._handleSubmit}>
+              {/* <input
+                placeholder="username"
+                type="text"
+                name="username"
+                value={username}
+                onChange={this._handleChange}
+              /> */}
+              <input
+                placeholder="email"
+                type="text"
+                name="email"
+                value={email}
+                onChange={this._handleChange}
+              />
+              <input
+                placeholder="password"
+                type="password"
+                name="password"
+                value={password}
+                onChange={this._handleChange}
+              />
+              <input
+                placeholder="password confirmation"
+                type="password"
+                name="password_confirmation"
+                value={password_confirmation}
+                onChange={this._handleChange}
+              />
 
-          <button placeholder="submit" type="submit">
-            Sign Up
-          </button>
+              <button placeholder="submit" type="submit">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
 
-        </form>
         <div>{this.state.errors ? this._handleErrors() : null}</div>
       </div>
     );
