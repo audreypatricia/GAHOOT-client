@@ -3,7 +3,6 @@ import axios from 'axios'
 import './PinBox.style.css'
 
 const SERVER_URL = 'https://gahoot-server.herokuapp.com/games.json';
-const SERVER_USERS_URL = 'https://gahoot-server.herokuapp.com/users.json';
 
 class PinBox extends Component {
   constructor(props){
@@ -13,11 +12,7 @@ class PinBox extends Component {
       selectedQuiz: this.props.quiz_id,
       game: '',
       host: this.props.host,
-<<<<<<< HEAD
       players: [],
-=======
-      players: []
->>>>>>> c6dad1b088cdff613bedf2befb09ab93b5c11362
     };
     this.createGame = this.createGame.bind(this);
     this.callGame = this.callGame.bind(this);
@@ -43,6 +38,12 @@ class PinBox extends Component {
     axios.get('https://gahoot-server.herokuapp.com/users/check').then((result) => {
       console.log("success");
     }).catch((error) => console.log("api errors:", error));
+    const showPlayers = () => {
+      axios.get(SERVER_URL).then((results) => {
+        // this.setState({ });
+        console.log(results);
+      });
+    }
   }
 
   render() {

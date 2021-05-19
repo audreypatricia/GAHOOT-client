@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 form.Quiz {
   margin: 10px;
-  background-color: lightblue;
+  background-color: white;
   border-radius: 0.5em;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+}
+
+button {
+    background-color: purple bold;
 }

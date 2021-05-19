@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../../stylesheets/PlayerSignInPage.css";
 
 class PlayerSignInPage extends Component {
   constructor(props) {
