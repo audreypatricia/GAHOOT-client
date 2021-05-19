@@ -13,7 +13,11 @@ class PinBox extends Component {
       selectedQuiz: this.props.quiz_id,
       game: '',
       host: this.props.host,
+<<<<<<< HEAD
       players: [],
+=======
+      players: []
+>>>>>>> c6dad1b088cdff613bedf2befb09ab93b5c11362
     };
     this.createGame = this.createGame.bind(this);
     this.callGame = this.callGame.bind(this);

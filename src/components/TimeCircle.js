@@ -12,6 +12,9 @@ export default class TimeCircle extends Component {
     const { duration, timeoutFn } = this.props;
     if (this.state.seconds === duration) {
       timeoutFn();
+      this.setState((prevState) => ({
+        seconds: prevState.seconds = 0
+      }));
     } else {
       this.setState((prevState) => ({
         seconds: prevState.seconds + 1

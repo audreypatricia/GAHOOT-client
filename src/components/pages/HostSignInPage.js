@@ -7,8 +7,8 @@ class HostSigInPage extends Component {
     super(props);
     this.state = {
       username: "",
-      email: "audrey@ga.com",
-      password: "chicken",
+      email: "",
+      password: "",
       errors: "",
     };
   }
@@ -74,41 +74,44 @@ class HostSigInPage extends Component {
     const { username, email, password } = this.state;
 
     return (
-      <div>
-        <h1>Host Sign In</h1>
-        <form onSubmit={this._handleSubmit}>
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this._handleChange}
-          />
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={this._handleChange}
-          />
-          <input
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this._handleChange}
-          />
+      <div className="HostSignInPage">
+        <div className="containerHostSignInPage">
+          <h1>Host Sign In</h1>
+          <div className="HostSignInForm">
+            <form onSubmit={this._handleSubmit}>
+              {/* <input
+                placeholder="username"
+                type="text"
+                name="username"
+                value={username}
+                onChange={this._handleChange}
+              /> */}
+              <input
+                placeholder="email"
+                type="text"
+                name="email"
+                value={email}
+                onChange={this._handleChange}
+              />
+              <input
+                placeholder="password"
+                type="password"
+                name="password"
+                value={password}
+                onChange={this._handleChange}
+              />
 
-          <button placeholder="submit" type="submit">
-            Host Log In
-          </button>
+              <button placeholder="submit" type="submit">
+                Host Log In
+              </button>
 
-          <div>
-            or <Link to="/host-sign-up">sign up</Link>
+              <div>
+                or <Link to="/host-sign-up">sign up</Link>
+              </div>
+            </form>
           </div>
-
-        </form>
-        <div>{this.state.errors ? this._handleErrors() : null}</div>
+          <div>{this.state.errors ? this._handleErrors() : null}</div>
+        </div>
       </div>
     );
   }
