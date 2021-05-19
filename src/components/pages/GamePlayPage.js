@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplayQuestion from '../DisplayQuestion';
 import OptionList from '../OptionList';
 import TimeCircle from '../TimeCircle';
-import ScoreBoard from '../Scoreboard/scoreboard';
+import ScoreBoard from '../Scoreboard/Scoreboard.js';
 import axios from 'axios';
 
 import styled from 'styled-components';
@@ -43,7 +43,7 @@ class GamePlayPage extends Component {
 
   }
 
-  
+
 
   updateQuestion = () => {
     this.setState({roundOver: false});
@@ -56,7 +56,7 @@ class GamePlayPage extends Component {
   }
 
   checkAnswer = (answer) => {
-    
+
     // console.log(this.props.timeLeft)
     this.setState({roundOver: true});
     if (answer == this.state.questions[this.state.activeQuestion].answer_options[4]) {
@@ -67,7 +67,7 @@ class GamePlayPage extends Component {
       console.log('WRONG');
     }
 
-  };  
+  };
 
   renderGame = () => {
     // console.log(this.props.startGame);
@@ -83,8 +83,8 @@ class GamePlayPage extends Component {
     return (
       <React.Fragment>
         <DisplayQuestion question={this.state.questions[this.state.activeQuestion].question} />
-        <TimeCircle 
-        duration={10} 
+        <TimeCircle
+        duration={10}
         timeoutFn={this.updateQuestion}/>
         <OptionList
           answer_options={this.state.questions[this.state.activeQuestion].answer_options}
