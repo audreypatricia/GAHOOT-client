@@ -38,6 +38,12 @@ class PinBox extends Component {
     axios.get('https://gahoot-server.herokuapp.com/users/check').then((result) => {
       console.log("success");
     }).catch((error) => console.log("api errors:", error));
+    const showPlayers = () => {
+      axios.get(SERVER_URL).then((results) => {
+        // this.setState({ });
+        console.log(results);
+      });
+    }
   }
 
   render() {

@@ -15,7 +15,7 @@ class Scoreboard extends Component {
   constructor(){
     super();
     this.state = {
-      game_id: 113,
+      game_id: 18,
       players: [],
       sortedPlayers: [],
     }
@@ -24,22 +24,31 @@ class Scoreboard extends Component {
 
     const fetchPlayers = () => {
       // fetch users
-      axios.get(`https://gahoot-server.herokuapp.com/games/${this.state.game_id}.json`).then((response) => {
+      axios.get(`http://localhost:3001/games/${this.state.game_id}.json`).then((response) => {
         let players = response.data.players;
         this.setState({ players: players });
-      });
+        console.log(players);
 
-      if(this.state.players.length > 0){
-        // sort based on scores
         let sortedArray = this.state.players.sort(function(a, b) {
-          return b[1] - a[1];
+          return b[2] - a[2];
         });
         console.log(sortedArray)
         this.setState({ sortedPlayers: sortedArray });
+      });
 
-      }
+      // if(this.state.players.length > 0){
+      //   // sort based on scores
+      //   console.log("here");
+      //   let sortedArray = this.state.players.sort(function(a, b) {
+      //     return b[2] - a[2];
+      //   });
+      //   console.log(sortedArray)
+      //   this.setState({ sortedPlayers: sortedArray });
+      //
+      // }
+
       // fetch users again recursively
-      setTimeout(fetchPlayers, 4000);
+      setTimeout(fetchPlayers, 8000);
 
     }
     fetchPlayers();
@@ -53,10 +62,12 @@ class Scoreboard extends Component {
 
     return(
       <div className='player-list'>
-        {this.state.sortedPlayers.map( (p) => <div className="player-container"><h2 key={p[0]}>{p[0]} => {p[1]}</h2></div> )}
+        {this.state.sortedPlayers.map( (p) => <div className="player-container"><h2 key={p[1]}>{p[1]} => {p[2]}</h2></div> )}
       </div>
     );
   }
 }
 
 export default Scoreboard;
+
+      // {this.state.sortedPlayers.map( (p) => <div className="player-container"><h2 key={p[0]}>{p[0]} => {p[1]}</h2></div> )}

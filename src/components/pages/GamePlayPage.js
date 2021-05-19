@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import DisplayQuestion from '../DisplayQuestion';
 import OptionList from '../OptionList';
 import TimeCircle from '../TimeCircle';
+import ScoreBoard from '../Scoreboard/Scoreboard.js';
 import axios from 'axios';
 
 import styled from 'styled-components';
 import { render } from 'react-dom';
+
 
 class GamePlayPage extends Component {
   constructor(props) {
@@ -41,6 +43,8 @@ class GamePlayPage extends Component {
 
   }
 
+
+
   updateQuestion = () => {
     this.setState({roundOver: false});
     this.setState((prevState) => ({
@@ -52,36 +56,35 @@ class GamePlayPage extends Component {
   }
 
   checkAnswer = (answer) => {
-    // to check answer
-    // console.log(this.state.roundOver);
+
+    // console.log(this.props.timeLeft)
     this.setState({roundOver: true});
     if (answer == this.state.questions[this.state.activeQuestion].answer_options[4]) {
       console.log('You were right!');
-      console.log({TimeCircle})
-
+      // this.props.quiz_id
 
     } else {
       console.log('WRONG');
     }
 
-  };  
+  };
 
   renderGame = () => {
-    console.log(this.props.startGame);
+    // console.log(this.props.startGame);
     if(this.props.startGame === false){
       return <div></div>
     }
 
     if (this.state.activeQuestion === this.state.questions.length) {
-      return <h1>You win!!!</h1>;
+      return (<ScoreBoard/>)
     }
 
-    console.log(this.state.roundOver); //true
+    // console.log(this.state.roundOver); //true
     return (
       <React.Fragment>
         <DisplayQuestion question={this.state.questions[this.state.activeQuestion].question} />
-        <TimeCircle 
-        duration={10} 
+        <TimeCircle
+        duration={10}
         timeoutFn={this.updateQuestion}/>
         <OptionList
           answer_options={this.state.questions[this.state.activeQuestion].answer_options}
