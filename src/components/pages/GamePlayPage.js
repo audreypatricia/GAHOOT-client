@@ -64,7 +64,7 @@ class GamePlayPage extends Component {
       console.log('WRONG');
     }
 
-  };
+  };  
 
   renderGame = () => {
     console.log(this.props.startGame);
