@@ -15,9 +15,9 @@ class QuizQuestions extends Component {
       // answer: '',
       // image: {},
       // quiz_id: 12,
-      quiz: { title: '1', category: 'education', username: 'Audrey', user_id: 41 }, // TODO: need to get user_id from session
+      quiz: { title: '', category: '', username: '', user_id: 1 }, // TODO: need to get user_id from session
       questions: [
-        {question: '1', image: '', option1: '1', option2: '2', option3:'3', option4:'4', answer:'0'},
+        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},

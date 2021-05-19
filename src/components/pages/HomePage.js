@@ -10,13 +10,18 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Welcome to homepage</h1>
-        <Link to="/host-sign-in">Host Sign In</Link>
-        <br />
-        <Link to="/host-sign-up">Host Sign Up</Link>
-        <br />
-
+      <div className="HomePage">
+        <div className="containerHostSignUpPage">
+          <h1>Welcome to Gahoot!</h1>
+          <Link to="/host-sign-in">Host Sign In</Link>
+          <br />
+          <Link to="/host-sign-up">Host Sign Up</Link>
+          <br />
+          <Link to="/host-sign-in">Host Sign In</Link>
+          <br />
+          <Link to="/host-sign-up">Host Sign Up</Link>
+          <br />
+        </div>
       </div>
     );
   }

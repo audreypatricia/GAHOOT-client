@@ -3,7 +3,6 @@ import axios from 'axios'
 import './PinBox.style.css'
 
 const SERVER_URL = 'https://gahoot-server.herokuapp.com/games.json';
-const SERVER_USERS_URL = 'https://gahoot-server.herokuapp.com/users.json';
 
 class PinBox extends Component {
   constructor(props){
@@ -13,16 +12,16 @@ class PinBox extends Component {
       selectedQuiz: this.props.quiz_id,
       game: '',
       host: this.props.host,
-      players: ''
+      players: [],
     };
     this.createGame = this.createGame.bind(this);
-    this.fetchPlayers = this.fetchPlayers.bind(this);
+    this.callGame = this.callGame.bind(this);
   }
 
   componentDidMount(){
     const generateGamePin = () => {
       const pin = Math.floor(100000 + Math.random() * 900000).toString();
-      console.log(pin);
+      // console.log(pin);
       this.setState({ gamePin: pin });
     }
     generateGamePin();
@@ -35,29 +34,11 @@ class PinBox extends Component {
     })
   }
 
-  fetchPlayers() {
-    axios.get(SERVER_USERS_URL).then((results) => {
-      const checkUserForPin = results.data.users
-      console.log(this.state.game["pin"]);
-      console.log(checkUserForPin);
-      let result = checkUserForPin.filter((user) => user.pin === this.state.game["pin"]);
-      console.log(result);
-      this.setState({ players: result})
-      console.log('This.state.players: ', this.state.players);
-    });
-
-    let modifiedPlayers = [];
-    console.log(this.state.players[0]);
-
-    for(let i = 0; i< this.state.players; i++){
-      let player = [this.state.players[i].username, "0"];
-      modifiedPlayers.push(player);
-    }
-    console.log(modifiedPlayers);
-     axios.put(`https://gahoot-server.herokuapp.com/games/${this.state.game["id"]}.json`, { players: this.state.players }).then((result) => {
-       console.log(result)
-     });
-    }
+  callGame() {
+    axios.get('https://gahoot-server.herokuapp.com/users/check').then((result) => {
+      console.log("success");
+    }).catch((error) => console.log("api errors:", error));
+  }
 
   render() {
 
@@ -71,7 +52,7 @@ class PinBox extends Component {
       <div className="WaitingRoom">
 
         <h3> Players </h3>
-        <input onClick={this.fetchPlayers} type='button' value='refresh?' />
+        <input onClick={this.callGame} type='button' value='refresh?' />
 
       </div>
       </div>

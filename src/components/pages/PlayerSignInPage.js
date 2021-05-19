@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+
 class PlayerSignInPage extends Component {
   constructor(props) {
     super(props);
@@ -97,29 +98,37 @@ class PlayerSignInPage extends Component {
     const { username, pin } = this.state;
 
     return (
-      <div>
-        <h1>Player Sign In</h1>
-        <form onSubmit={this._handleSubmit}>
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this._handleChange}
-          />
-          <input
-            placeholder="pin"
-            type="text"
-            name="pin"
-            value={pin}
-            onChange={this._handleChange}
-          />
+      <div className="PlayerSignInPage">
+        <div className="containerPlayerSignInPage">
+          <h1>Gahoot!</h1>
+          <div className="PlayerSignInForm">
+            <form onSubmit={this._handleSubmit}>
+              <p>
+                <input
+                  placeholder="username"
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={this._handleChange}
+                />
+              </p>
+              <p>
+                <input
+                  placeholder="pin"
+                  type="text"
+                  name="pin"
+                  value={pin}
+                  onChange={this._handleChange}
+                />
+              </p>
 
-          <button placeholder="submit" type="submit">
-            Sign In
-          </button>
-        </form>
-        <div>{this.state.errors ? this._handleErrors() : null}</div>
+              <button placeholder="submit" type="submit">
+                Sign In
+              </button>
+            </form>
+          </div>
+          <div>{this.state.errors ? this._handleErrors() : null}</div>
+        </div>
       </div>
     );
   }

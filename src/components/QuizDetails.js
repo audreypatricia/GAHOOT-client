@@ -14,7 +14,7 @@ class QuizDetails extends Component {
   }
 
   _handleChange(event){
-    // this.setState({[event.target.name]: event.target.value })
+    this.setState({[event.target.name]: event.target.value })
     this.props.onChange(event);
   }
 
