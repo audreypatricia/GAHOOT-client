@@ -3,7 +3,6 @@ import axios from 'axios'
 import './PinBox.style.css'
 
 const SERVER_URL = 'https://gahoot-server.herokuapp.com/games.json';
-const SERVER_USERS_URL = 'https://gahoot-server.herokuapp.com/users.json';
 
 class PinBox extends Component {
   constructor(props){
@@ -13,7 +12,7 @@ class PinBox extends Component {
       selectedQuiz: this.props.quiz_id,
       game: '',
       host: this.props.host,
-      players: []
+      players: [],
     };
     this.createGame = this.createGame.bind(this);
     this.callGame = this.callGame.bind(this);
