@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DisplayQuestion from '../DisplayQuestion';
-import OptionList from '../OptionList'
+import OptionList from '../OptionList';
+import TimeCircle from '../TimeCircle';
 import axios from 'axios';
 
 import styled from 'styled-components';
@@ -38,19 +39,27 @@ class GamePlayPage extends Component {
       // console.log(questions);
     })
 
+  }
 
+  updateQuestion = () => {
+    this.setState({roundOver: false});
+    this.setState((prevState) => ({
+      activeQuestion: prevState.activeQuestion + 1
+    }));
+    this.setState((prevState) => ({
+      seconds: prevState.seconds = 0
+    }));
   }
 
   checkAnswer = (answer) => {
-// to check answer
-  // console.log(this.state.roundOver);
-  this.setState({roundOver: true});
+    // to check answer
+    // console.log(this.state.roundOver);
+    this.setState({roundOver: true});
     if (answer == this.state.questions[this.state.activeQuestion].answer_options[4]) {
       console.log('You were right!');
+      console.log({TimeCircle})
 
-      // this.setState((prevState) => ({
-      //   activeQuestion: prevState.activeQuestion + 1
-      // }));
+
     } else {
       console.log('WRONG');
     }
@@ -67,18 +76,17 @@ class GamePlayPage extends Component {
       return <h1>You win!!!</h1>;
     }
 
-    if( this.state.roundOver === true ){
-      return <div>Waiting for other players to answer</div>
-    }
-
     console.log(this.state.roundOver); //true
     return (
       <React.Fragment>
         <DisplayQuestion question={this.state.questions[this.state.activeQuestion].question} />
+        <TimeCircle 
+        duration={10} 
+        timeoutFn={this.updateQuestion}/>
         <OptionList
           answer_options={this.state.questions[this.state.activeQuestion].answer_options}
           checkAnswer={this.checkAnswer}
-          roundOver ={this.state.roundOver}
+          roundOver={this.state.roundOver}
         />
       </React.Fragment>
     );
@@ -89,10 +97,6 @@ class GamePlayPage extends Component {
 
     return (
       <GameWrapper>{this.renderGame()}</GameWrapper>
-      // <div>
-      //   <h1>Gameplay</h1>
-      //   <DisplayQuestion questions={this.state.questions}/>
-      // </div>
     );
   }
 }

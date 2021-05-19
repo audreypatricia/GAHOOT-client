@@ -22,14 +22,6 @@ const OptionsButton = styled.button`
   width: 100%;
 `;
 
-// const OptionList = ({ answer_options, checkAnswer }) => (
-//   <OptionsListWrapper>
-//     {answer_options.slice(0,-1).map((option,index) => (
-//       <OptionsButton onClick={() => checkAnswer(index)} {}>{option}</OptionsButton>
-//     ))}
-//   </OptionsListWrapper>
-// );
-
 class OptionList extends Component {
   constructor(props){
     super(props);
@@ -38,17 +30,21 @@ class OptionList extends Component {
     }
   }
   render(){
-    console.log(this.state.roundOver);
-    return(
-      <OptionsListWrapper>
-        {this.props.answer_options.slice(0,-1).map((option,index) => (
-          <OptionsButton
-            onClick={() => this.props.checkAnswer(index)}>
-            {option}
-          </OptionsButton>
-        ))}
-      </OptionsListWrapper>
-    );
+    console.log(this.props.roundOver);
+    if( this.props.roundOver === true ){
+      return <div>Waiting for other players to answer</div>
+    }else{
+      return(
+        <OptionsListWrapper>
+          {this.props.answer_options.slice(0,-1).map((option,index) => (
+            <OptionsButton
+              onClick={() => this.props.checkAnswer(index)}>
+              {option}
+            </OptionsButton>
+          ))}
+        </OptionsListWrapper>
+      );
+    }
   }
 }
 
