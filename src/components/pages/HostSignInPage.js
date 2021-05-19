@@ -7,8 +7,8 @@ class HostSigInPage extends Component {
     super(props);
     this.state = {
       username: "",
-      email: "",
-      password: "",
+      email: "audrey@ga.com",
+      password: "chicken",
       errors: "",
     };
   }

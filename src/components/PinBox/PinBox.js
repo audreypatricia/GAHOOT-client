@@ -13,7 +13,7 @@ class PinBox extends Component {
       selectedQuiz: this.props.quiz_id,
       game: '',
       host: this.props.host,
-      players: ''
+      players: [],
     };
     this.createGame = this.createGame.bind(this);
     this.fetchPlayers = this.fetchPlayers.bind(this);
@@ -47,13 +47,15 @@ class PinBox extends Component {
     });
 
     let modifiedPlayers = [];
-    console.log(this.state.players[0]);
-
+    // console.log(this.state.players[0]); //wont work no username
+    console.table(this.state.players);
     for(let i = 0; i< this.state.players; i++){
       let player = [this.state.players[i].username, "0"];
       modifiedPlayers.push(player);
     }
     console.log(modifiedPlayers);
+    console.log(this.state.players.length);
+
      axios.put(`https://gahoot-server.herokuapp.com/games/${this.state.game["id"]}.json`, { players: this.state.players }).then((result) => {
        console.log(result)
      });
