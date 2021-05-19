@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplayQuestion from '../DisplayQuestion';
 import OptionList from '../OptionList';
 import TimeCircle from '../TimeCircle';
-import ScoreBoard from '../Scoreboard/Scoreboard.js';
+import ScoreBoard from '../Scoreboard/scoreboard.js';
 import axios from 'axios';
 
 import styled from 'styled-components';
