@@ -27,6 +27,7 @@ class Scoreboard extends Component {
       axios
         .get(`https://gahoot-server.herokuapp.com/users.json`)
         .then((response) => {
+          console.log(response.data);
           // let players = response.data.players;
           // this.setState({ players: players });
           // console.log(players);
@@ -49,7 +50,7 @@ class Scoreboard extends Component {
       //   this.setState({ sortedPlayers: sortedArray });
       //
       // }
-        this.setState({game:this.props.game})
+      this.setState({ game: this.props.game });
       // fetch users again recursively
       setTimeout(fetchPlayers, 8000);
       // setInterval(this.setState({no:""}),3000)
@@ -65,12 +66,7 @@ class Scoreboard extends Component {
     let allPlayers = [];
     if (this.state.game.players) {
       for (let i = 0; i < this.state.game.players.length; i++) {
-        allPlayers.push(
-          <div>
-            Player ID:{this.state.game.players[i][1]}
-            {/* {axios.get(`https://gahoot-server.herokuapp.com/users.json`).then(response=>{console.log(response.data)})} */}
-          </div>
-        );
+        allPlayers.push(<div>Player ID:{this.state.game.players[i][1]}</div>);
       }
     }
 
