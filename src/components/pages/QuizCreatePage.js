@@ -7,7 +7,7 @@ class QuizCreatePage extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        user_id: 1,
+        user:this.props.user,
       }
       this.createQuiz = this.createQuiz.bind(this);
       this.createQuestions = this.createQuestions.bind(this);
@@ -62,12 +62,12 @@ class QuizCreatePage extends Component {
 
     render() {
       console.log(this.props);
-      console.log(this.props.UserID);
+      console.log(this.props.user);
       return (
         <div>
           <h1>Quiz create</h1>
 
-          <QuizQuestions UserID={this.props.UserID}/>
+          <QuizQuestions user={this.state.user}/>
         </div>
       );
     }
