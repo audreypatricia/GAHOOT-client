@@ -27,22 +27,25 @@ class QuizDetails extends Component {
   render() {
     console.log(this.state.user)
     return(
-      <form onSubmit={this._handleSubmit}>
-        <label>
-        Quiz Title:
-          <input onChange={this._handleChange} name="title" placeholder="Animal Trivia" />
-        </label>
-        <label>
-        Category:
-          <select value={this.state.category} onChange={this._handleChange} name="category">
-            <option value="" >--- please select one ---</option>
-            <option value="general knowledge">General knowledge</option>
-            <option value="education">Education</option>
-            <option value="trivia">Trivia</option>
-          </select>
-        Creator:{this.state.user.id}
+      <form className="question" onSubmit={this._handleSubmit}>
+        <div className="quizTitle">
+          <label> Quiz Title: </label>
+            <input className="quizDetailInput" onChange={this._handleChange} name="title" placeholder="Animal Trivia" />
+        </div>
 
-        </label>
+        <div className="category">
+          <label> Category: </label>
+            <select className="quizDetailInput" value={this.state.category} onChange={this._handleChange} name="category">
+              <option value="" >--- please select one ---</option>
+              <option value="general knowledge">General knowledge</option>
+              <option value="education">Education</option>
+              <option value="trivia">Trivia</option>
+            </select>
+        </div>
+
+        <div className="hidden">
+          Creator:{this.state.user.id}
+        </div>
 
       </form>
     );

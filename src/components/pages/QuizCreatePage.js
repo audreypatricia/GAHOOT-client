@@ -16,31 +16,30 @@ class QuizCreatePage extends Component {
     createQuiz(title, category, username){
         // get user_id of the person creating the quiz
         // to be changed to heroku link: https://gahoot-server.herokuapp.com/users.json
-      axios.get('https://gahoot-server.herokuapp.com/users.json').then((response) => {
-        console.log(response.data);
-        let users = response.data;
+      // axios.get('https://gahoot-server.herokuapp.com/users.json').then((response) => {
+        // console.log(response.data);
+        // let users = response.data;
 
-        for(let i = 0; i < users.length; i++) {
-          if(users[i].username === username){
-            this.setState({ user_id: users[i].id});
-            console.log(this.state.user_id);
-            break;
-          }
-        }
+        // for(let i = 0; i < users.length; i++) {
+        //   if(users[i].username === username){
+        //     this.setState({ user_id: users[i].id});
+        //     console.log(this.state.user_id);
+        //     break;
+        //   }
+        // }
 
-        const data = {
-          title: title,
-          category: category,
-          user_id: this.state.user_id
-        };
+      // });
 
-        axios.post('https://gahoot-server.herokuapp.com/quizzes.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
-        .catch(error => {
-          console.log(error.message);
-        })
+      const data = {
+        title: title,
+        category: category,
+        user_id: this.state.user.id
+      };
 
-
-      });
+      axios.post('https://gahoot-server.herokuapp.com/quizzes.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
+      .catch(error => {
+        console.log(error.message);
+      })
 
     }
 
@@ -65,7 +64,7 @@ class QuizCreatePage extends Component {
       console.log(this.props.user);
       return (
         <div>
-          <h1>Quiz create</h1>
+          <h1 className="quizCreateHeader">Quiz create</h1>
 
           <QuizQuestions user={this.state.user}/>
         </div>
