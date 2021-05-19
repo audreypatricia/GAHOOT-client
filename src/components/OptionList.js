@@ -30,9 +30,13 @@ class OptionList extends Component {
     }
   }
   render(){
-    console.log(this.props.roundOver);
+    // console.log(this.props.roundOver);
     if( this.props.roundOver === true ){
-      return <div>Waiting for other players to answer</div>
+      return (
+        <OptionsListWrapper>
+          <div>Waiting for other players to answer</div>
+        </OptionsListWrapper> 
+      )
     }else{
       return(
         <OptionsListWrapper>
