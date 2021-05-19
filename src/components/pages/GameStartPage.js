@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PinBox from '../PinBox/PinBox'
 import { Link } from 'react-router-dom';
 import GamePlayPage from './GamePlayPage';
+import ScoreBoard from '../Scoreboard/scoreboard.js';
 
 class GameStartPage extends Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class GameStartPage extends Component {
           <button onClick={this.startGame}>Start the game!</button>
 
           <GamePlayPage quiz_id={this.props.match.params.id} startGame={this.state.startGame}/>
+          <ScoreBoard game={this.state.game}/>
           </div> );
     }
 }
@@ -52,7 +54,6 @@ class StartGameButton extends Component {
     return (
       <div className="button">
     <Link to={"/gameplay/" + this.props.quiz_id }>Start Game</Link>
-
     </div>
       )
    }
