@@ -66,7 +66,12 @@ class Scoreboard extends Component {
     let allPlayers = [];
     if (this.state.game.players) {
       for (let i = 0; i < this.state.game.players.length; i++) {
-        allPlayers.push(<div>Player ID:{this.state.game.players[i][1]}</div>);
+        allPlayers.push(
+          <div>
+            <p>Player username:{this.state.game.players[i][2]}</p>
+            <p>Player score:{this.state.game.players[i][3]}</p>
+          </div>
+        );
       }
     }
 
