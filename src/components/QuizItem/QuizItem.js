@@ -21,7 +21,6 @@ class QuizItem extends Component {
       });
     }
     fetchQuizzes();
-    console.log(this.state.host)
   }
 
   render(){

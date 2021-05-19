@@ -9,14 +9,19 @@ class GameStartPage extends Component {
         this.state = {
         host: this.props.user,
         startGame: false,
+        game: ''
       }
       this.startGame = this.startGame.bind(this);
+      this.getGame = this.getGame.bind(this);
     }
 
     startGame(){
       this.setState({startGame: true});
     }
 
+    getGame(game) {
+      this.setState({ game: game })
+    }
     render() {
 
       console.log('GameStart host: ', this.state.host)
@@ -25,7 +30,7 @@ class GameStartPage extends Component {
         return (
           <div>
           <h1>Game start</h1>
-          <PinBox quiz_id={ this.props.match.params.id } host={ this.state.host }/>
+          <PinBox quiz_id={ this.props.match.params.id } passGame={this.getGame}/>
           <button onClick={this.startGame}>Start the game!</button>
 
           <GamePlayPage quiz_id={this.props.match.params.id} startGame={this.state.startGame}/>
