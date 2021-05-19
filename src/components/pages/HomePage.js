@@ -13,14 +13,17 @@ class HomePage extends Component {
       <div className="HomePage">
         <div className="containerHostSignUpPage">
           <h1>Welcome to Gahoot!</h1>
-          <Link to="/host-sign-in">Host Sign In</Link>
-          <br />
-          <Link to="/host-sign-up">Host Sign Up</Link>
-          <br />
-          <Link to="/host-sign-in">Host Sign In</Link>
-          <br />
-          <Link to="/host-sign-up">Host Sign Up</Link>
-          <br />
+          <div className="HostPageForm">
+            <Link to="/host-sign-in">Host Sign In</Link>
+          </div>
+
+          <div className="HostPageForm">
+            <Link to="/host-sign-up">Host Sign Up</Link>
+          </div>
+
+          <div className="HostPageForm">
+            <Link to="/player-sign-in">Player Sign In</Link>
+          </div>
         </div>
       </div>
     );

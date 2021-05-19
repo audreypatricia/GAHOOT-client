@@ -12,10 +12,11 @@ const OptionsListWrapper = styled.div`
 const OptionsButton = styled.button`
   align-items: center;
   border: 3px solid black;
-  background: blue;
+  border-radius: .05rem;
+  background: cornsilk;
   display: flex;
   justify-content: center;
-  color: white;
+  color: black;
   font-size: 2.2rem;
   font-weight: bold;
   min-height: 10rem;
