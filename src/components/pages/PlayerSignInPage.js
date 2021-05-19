@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-=======
-
->>>>>>> f0013edab2d67465beeca10ff25073d98b014b6b
 
 class PlayerSignInPage extends Component {
   constructor(props) {
