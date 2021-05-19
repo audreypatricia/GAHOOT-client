@@ -180,3 +180,50 @@ nav a {
  background-color: black;
  color: white;
 }
+
+
+.HomePage {
+  background-image: url(./images/playerSignInBackground.png);
+  background-size: cover;
+  height: 97vh;
+}
+
+.HomePage h1 {
+  color: white;
+  font-family: Cabin Sketch;
+  font-size: 5vw;
+  position: relative;
+}
+
+.containerHostSignUpPage {
+  width: 50vw;
+  margin: 0 auto;
+  text-align: center;
+  /* background-color: white; */
+}
+
+.HostSignUpForm {
+  background-color: white;
+  height: 35vh;
+  width: 20vw;
+  margin: 0 auto;
+  margin-top: 10vh;
+  border-radius: 1em;
+}
+
+.HostSignUpForm input{
+  width:15vw;
+  height: 5vh;
+  margin-top: 3vh;
+  text-align: center;
+  font-size: 140%;
+
+}
+
+.HostSignUpForm button{
+ font-size: 140%;
+ margin-top: 2vh;
+ width:15vw;
+ background-color: black;
+ color: white;
+}
