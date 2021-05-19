@@ -1,26 +1,38 @@
-import React from "react";
-export default function TimeCircle() {
-  const [timer, setTimer] = React.useState(60);
-  const id = React.useRef(null);
-  const clear = () => {
-    window.clearInterval(id.current);
-  };
-  React.useEffect(() => {
-    id.current = window.setInterval(() => {
-      setTimer((time) => time - 1);
-    }, 1000);
-    return () => clear();
-  }, []);
+import React, { Component } from 'react';
 
-  React.useEffect(() => {
-    if (timer === 0) {
-      clear();
+export default class TimeCircle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      seconds: 0
+    };
+  }
+
+  tick() {
+    const { duration, timeoutFn } = this.props;
+    if (this.state.seconds === duration) {
+      timeoutFn();
+      this.setState((prevState) => ({
+        seconds: prevState.seconds = 0
+      }));
+    } else {
+      this.setState((prevState) => ({
+        seconds: prevState.seconds + 1
+      }));
     }
-  }, [timer]);
+  }
 
-  return (
-    <div className="TimeCircle">
-      <div>Time left : {timer} </div>
-    </div>
-  );
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    const { duration } = this.props;
+    let timeLeft = duration - this.state.seconds;
+    return <span>Time Left: {timeLeft}</span>;
+  }
 }
