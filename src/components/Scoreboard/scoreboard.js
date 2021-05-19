@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 import axios from 'axios';
 
-import './scoreboard.styles.css';
+// import './scoreboard.styles.css';
 
 // export const PlayerList = props => (
 //   <div className='player-list'>
