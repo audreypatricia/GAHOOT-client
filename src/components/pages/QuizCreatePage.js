@@ -7,7 +7,7 @@ class QuizCreatePage extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        user: this.props.user,
+        user:this.props.user,
       }
       this.createQuiz = this.createQuiz.bind(this);
       this.createQuestions = this.createQuestions.bind(this);
@@ -61,8 +61,8 @@ class QuizCreatePage extends Component {
     }
 
     render() {
-      // console.log(this.props);
-      console.log(this.state.user);
+      console.log(this.props);
+      console.log(this.props.user);
       return (
         <div>
           <h1>Quiz create</h1>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 class QuizDetails extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       title: '',
       category: '',
-      username: ''
+      username: '',
+      user:this.props.user
     }
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
@@ -24,7 +25,7 @@ class QuizDetails extends Component {
   }
 
   render() {
-    console.log(`quiz details User : ${this.props.user}`)
+    console.log(this.state.user)
     return(
       <form onSubmit={this._handleSubmit}>
         <label>
@@ -39,7 +40,7 @@ class QuizDetails extends Component {
             <option value="education">Education</option>
             <option value="trivia">Trivia</option>
           </select>
-        Creator:{this.props.user}
+        Creator:{this.state.user.id}
 
         </label>
 

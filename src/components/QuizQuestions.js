@@ -4,8 +4,8 @@ import Question from './Question'
 import QuizDetails from './QuizDetails'
 
 class QuizQuestions extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       // question: '',
       // option1: '',
@@ -27,7 +27,8 @@ class QuizQuestions extends Component {
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-      ]
+      ],
+      user: this.props.user
     }
 
     this._handleChange = this._handleChange.bind(this);
@@ -150,12 +151,12 @@ class QuizQuestions extends Component {
   }
 
   render() {
-    console.log(`quiz questions User :${this.props.user}`);
+    console.log(`quiz questions User: ${this.state.user}`);
     return(
       <div>
         <form onSubmit={this.createQuestion}>
 
-          <QuizDetails onChange={this._handleQuizChange} user={this.props.user}/>
+          <QuizDetails onChange={this._handleQuizChange} user={this.state.user}/>
 
           <Question onChange={this._handleChange} onUpload={this._onChange} value="1"/>
           <Question onChange={this._handleChange} onUpload={this._onChange} value="2"/>
