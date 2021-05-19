@@ -46,9 +46,9 @@ class GamePlayPage extends Component {
     this.setState((prevState) => ({
       activeQuestion: prevState.activeQuestion + 1
     }));
-    this.setState((prevState) => ({
-      seconds: prevState.seconds = 0
-    }));
+    // this.setState((prevState) => ({
+    //   seconds: prevState.seconds = 0
+    // }));
   }
 
   checkAnswer = (answer) => {
