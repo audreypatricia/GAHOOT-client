@@ -8,12 +8,13 @@ const SERVER_USERS_URL = 'https://gahoot-server.herokuapp.com/users.json';
 class PinBox extends Component {
   constructor(props){
     super(props);
-    this.state ={
+    this.state = {
       gamePin: '',
       selectedQuiz: this.props.quiz_id,
       game: '',
-      host: this.props.host
-    }
+      host: this.props.host,
+      players: ''
+    };
     this.createGame = this.createGame.bind(this);
     this.fetchPlayers = this.fetchPlayers.bind(this);
   }
@@ -41,29 +42,24 @@ class PinBox extends Component {
       console.log(checkUserForPin);
       let result = checkUserForPin.filter((user) => user.pin === this.state.game["pin"]);
       console.log(result);
-    })
-  };
+      this.setState({ players: result})
+      console.log('This.state.players: ', this.state.players);
+    });
 
-  //
-  //
-  //     console.log(result);
-  //     this.setState({ players: result})
-  //
-  //     if(this.state.players !== ''){
-  //
-  //      axios.put(`https://gahoot-server.herokuapp.com/games/${this.state.game["id"]}.json`, {
-  //        players: JSON.stringify(result),
-  //      }).then((result) => {
-  //        // console.log(result);
-  //      });
-  //     }
-  //     });
-  //      console.log('Game: ', this.state.game);
-  //      console.log(this.state.players);
-  //    }
+    let modifiedPlayers = [];
+    console.log(this.state.players[0]);
+
+    for(let i = 0; i< this.state.players; i++){
+      let player = [this.state.players[i].username, "0"];
+      modifiedPlayers.push(player);
+    }
+    console.log(modifiedPlayers);
+     axios.put(`https://gahoot-server.herokuapp.com/games/${this.state.game["id"]}.json`, { players: this.state.players }).then((result) => {
+       console.log(result)
+     });
+    }
 
   render() {
-    // console.log(`This game's players: `, this.state.players);
 
     return(
       <div className="PinBox-component">
