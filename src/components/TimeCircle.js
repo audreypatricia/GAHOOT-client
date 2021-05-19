@@ -6,6 +6,7 @@ export default class TimeCircle extends Component {
     this.state = {
       seconds: 0
     };
+    
   }
 
   tick() {
@@ -33,6 +34,8 @@ export default class TimeCircle extends Component {
   render() {
     const { duration } = this.props;
     let timeLeft = duration - this.state.seconds;
-    return <span>Time Left: {timeLeft}</span>;
+    return (
+    <span>Time Left: {timeLeft}</span>
+    );
   }
 }
