@@ -10,6 +10,7 @@ class HostSigInPage extends Component {
       email: "",
       password: "",
       errors: "",
+
     };
   }
 
@@ -49,7 +50,9 @@ class HostSigInPage extends Component {
             errors: response.data.errors,
           });
         }
-        console.log(response);
+        // console.log(response);
+
+
       })
       .catch((error) => console.log("api errors:", error));
   };

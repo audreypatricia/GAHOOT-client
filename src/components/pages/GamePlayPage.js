@@ -17,8 +17,8 @@ class GamePlayPage extends Component {
         quiz_id: this.props.quiz_id,
         questions: [],
         roundOver: false,
-        user: this.props.user,
-
+        player: this.props.user,
+        score: ""
       }
 
 
@@ -61,7 +61,11 @@ class GamePlayPage extends Component {
     this.setState({roundOver: true});
     if (answer == this.state.questions[this.state.activeQuestion].answer_options[4]) {
       console.log('You were right!');
-      // this.props.quiz_id
+      axios.get(`https://gahoot-server.herokuapp.com/users/${this.state.player.id}.json`).then((response)=>{
+        this.setState({score: response.data.user.score})
+
+        axios.post(`https://gahoot-server.herokuapp.com/users/${this.state.player.id}.json`,{score:parseInt(this.state.score)+73})
+      })
 
     } else {
       console.log('WRONG');

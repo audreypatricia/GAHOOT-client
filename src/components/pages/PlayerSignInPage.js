@@ -15,6 +15,7 @@ class PlayerSignInPage extends Component {
       errors: "",
       pins: [],
       quiz_id: '',
+      user_id: ''
     };
   }
 
@@ -68,7 +69,16 @@ class PlayerSignInPage extends Component {
           if (response.data.status === "created") {
             this.props.handleLogin(response.data);
             console.log(response);
-            this.redirect();
+            this.setState({ user_id: response.data.user.id })
+            //call backend to do work
+
+            axios.get(`https://gahoot-server.herokuapp.com/users/${this.state.user_id}/getQuiz`).then((response) => {
+
+              console.log(response)
+              this.setState({ quiz_id: response.data.quiz_id });
+              this.redirect();
+            })
+
           } else {
             this.setState({
               errors: response.data.errors,

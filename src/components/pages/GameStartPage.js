@@ -1,73 +1,70 @@
-import React, { Component } from 'react';
-import PinBox from '../PinBox/PinBox'
-import { Link } from 'react-router-dom';
-import GamePlayPage from './GamePlayPage';
-import ScoreBoard from '../Scoreboard/scoreboard.js';
+import React, { Component } from "react";
+import PinBox from "../PinBox/PinBox";
+import { Link } from "react-router-dom";
+import GamePlayPage from "./GamePlayPage";
+import ScoreBoard from "../Scoreboard/scoreboard.js";
 
 class GameStartPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        host: this.props.user,
-        startGame: false,
-        game: '',
-      }
-      this.startGame = this.startGame.bind(this);
-      this.getGame = this.getGame.bind(this);
-      
+  constructor(props) {
+    super(props);
+    this.state = {
+      host: this.props.user,
+      startGame: false,
+      game: "",
+    };
+    this.startGame = this.startGame.bind(this);
+    this.getGame = this.getGame.bind(this);
+  }
 
-    }
+  startGame() {
+    this.setState({ startGame: true });
+  }
 
-    startGame(){
-      this.setState({startGame: true});
-    }
+  getGame(game) {
+    this.setState({ game: game });
+  }
+  render() {
+    console.log("GameStart host: ", this.state.host);
+    console.log(this.state.startGame);
+    console.log(this.state.host);
 
-    getGame(game) {
-      this.setState({ game: game })
-    }
-
-    getUser(){
-      this.setState({ host: this.props.user });
-    }
-
-
-    render() {
-
-      console.log('GameStart host: ', this.state.host)
-      console.log(this.state.host == null);
-      console.log(this.state.startGame);
-      console.log(this.state.host);
-
-
-        return (
-          <div>
+    return (
+      <div className="GameStartPage">
+        <div class="GameStartMenu">
           <h1>Game start</h1>
-          <PinBox quiz_id={ this.props.match.params.id } passGame={this.getGame}/>
+          <PinBox
+            quiz_id={this.props.match.params.id}
+            passGame={this.getGame}
+          />
           <button onClick={this.startGame}>Start the game!</button>
+        </div>
 
-          <GamePlayPage quiz_id={this.props.match.params.id} startGame={this.state.startGame} user={this.state.host}/>
-          <ScoreBoard game={this.state.game}/>
-          </div> );
-    }
+        <GamePlayPage
+          quiz_id={this.props.match.params.id}
+          startGame={this.state.startGame}
+          user={this.props.user}
+        />
+        <ScoreBoard game={this.state.game} />
+      </div>
+    );
+  }
 }
 
 //if need a new page for game:
 // <StartGameButton quiz_id={this.props.match.params.id}/>
 class StartGameButton extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-
-    }
+    this.state = {};
   }
 
-  render(){
+  render() {
     return (
       <div className="button">
-    <Link to={"/gameplay/" + this.props.quiz_id }>Start Game</Link>
-    </div>
-      )
-   }
+        <Link to={"/gameplay/" + this.props.quiz_id}>Start Game</Link>
+      </div>
+    );
   }
+}
 
 export default GameStartPage;
