@@ -451,7 +451,7 @@ div.grid {
   left: 0;
 }
 
-/* div.HomePageDiv {
+div.HomePageDiv {
   font-family: Cabin Sketch;
   background-color: #fbfaf5;
   border-radius: 0.5em;
@@ -459,7 +459,7 @@ div.grid {
   color: black;
   line-height: 35vh;
   font-size: 200%;
-} */
+}
 
 
 .GameStartMenu {
