@@ -69,7 +69,7 @@ class PinBox extends Component {
       <div className="PinBox-component">
         <div className="PinBox">
           <h4> Game Pin: </h4>
-          <p> {this.state.gamePin} </p>
+          <p className={ this.state.game !== "" ? "": "invisible"}> {this.state.gamePin} </p>
           <input onClick={this.createGame} type="button" value="Create Game" />
         </div>
         <div className="WaitingRoom">

@@ -197,7 +197,7 @@ class QuizQuestions extends Component {
 
     // console.log(...form);
 
-    fetch(`http://localhost:3001/questions.json`, {
+    fetch(`https://gahoot-server.herokuapp.com/questions.json`, {
       method: "POST",
       body: form,
       referrerPolicy: "origin-when-cross-origin",

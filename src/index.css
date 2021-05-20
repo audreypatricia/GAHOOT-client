@@ -253,9 +253,15 @@ div.PinBox {
   font-size: 90%;
   margin-top: 2vh;
   width: 15vw;
-  background-color: orange;
+  background-color: goldenrod;
   color: white;
   border-radius: 0.5em;
+}
+
+.PinBox input:hover {
+  color: goldenrod;
+  border: 2px solid goldenrod;
+  background-color: white;
 }
 
 .QuizCreateContainer {
@@ -474,9 +480,15 @@ div.grid {
   font-size: 140%;
   margin-top: 1vh;
   width: 15vw;
-  background-color: green;
+  background-color: #2d9408;
   color: white;
   border-radius: 0.5em;
+}
+
+.GameStartMenu button:hover {
+  color: #2d9408;
+  background-color: white;
+  border: 2px solid #2d9408;
 }
 
 .GameStartMenu h4 {
@@ -540,21 +552,34 @@ input::-webkit-input-placeholder {
   font-size: 140%;
   margin-top: 2vh;
   width: 15vw;
-  background-color: green;
+  background-color: #2d9408;
   color: white;
   border-radius: 0.5em;
 }
 
+.quizbutton:hover {
+  color: #2d9408;
+  background-color: white;
+  border: 2px solid #2d9408;
+}
+
 .playbutton {
-  background-color: rgb(255, 166, 0);
+  background-color: goldenrod;
   color: white;
   border-radius: 0.5em;
   font-size: 120%;
 }
 
+.playbutton:hover {
+  background-color: white;
+  color: goldenrod;
+  border: 2px solid goldenrod;
+
+}
+
 .scoreboardspan {
   color: black;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Cabin Sketch", Times, serif;
   font-size: 110%;
 }
 
