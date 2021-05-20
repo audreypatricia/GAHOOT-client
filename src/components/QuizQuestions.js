@@ -115,8 +115,6 @@ class QuizQuestions extends Component {
   }
 
   _handleChange(event, i) {
-    // event.preventDefault();
-    // this.setState({ [event.target.name]: event.target.value});
     // console.log(this.state.questions[i-1]);
     this.setState((prevState) => {
       let questions = this.state.questions.slice(0);
@@ -136,13 +134,6 @@ class QuizQuestions extends Component {
   }
 
   _onChange(event, i) {
-    // event.persist();
-    // this.setState(() => {
-    //   return {
-    //     [event.target.name]: event.target.files[0]
-    //   }
-    // })
-
     event.persist();
     this.setState((prevState) => {
       let questions = this.state.questions.slice(0);
@@ -156,14 +147,9 @@ class QuizQuestions extends Component {
   createQuestion(event) {
     event.preventDefault();
 
-    // const answer_options = [this.state.option1, this.state.option2, this.state.option3, this.state.option4, this.state.answer]
-    console.log(this.state.quiz);
-    // const form = new FormData()
-    // form.append("image", this.state.image);
-    // form.append("question", this.state.question);
-    // form.append("answer_options", this.state.answer_options);
+    // console.log(this.state.quiz);
     let questionsCopy = this.state.questions.slice(0);
-    console.log(questionsCopy);
+    // console.log(questionsCopy);
     let questionData = [];
 
     for (let i = 0; i < questionsCopy.length; i++) {
@@ -186,7 +172,7 @@ class QuizQuestions extends Component {
       }
     }
 
-    console.log(questionData);
+    // console.log(questionData);
 
     let questionsCopy2 = this.state.questions.slice(0);
 
@@ -197,7 +183,7 @@ class QuizQuestions extends Component {
       }
     }
 
-    console.log(imageArray);
+    // console.log(imageArray);
 
     const form = new FormData();
 
@@ -208,7 +194,7 @@ class QuizQuestions extends Component {
     form.append("quiz", JSON.stringify(this.state.quiz));
     form.append("questions", JSON.stringify(questionData));
 
-    console.log(...form);
+    // console.log(...form);
 
     fetch(`http://localhost:3001/questions.json`, {
       method: "POST",
@@ -216,20 +202,15 @@ class QuizQuestions extends Component {
       referrerPolicy: "origin-when-cross-origin",
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
-
-    // axios.post('https://gahoot-server.herokuapp.com/questions.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
-    // .catch(error => {
-    //   console.log(error.message);
-    // })
   }
 
   render() {
-    console.log(`quiz questions User: ${this.state.user}`);
+    // console.log(`quiz questions User: ${this.state.user}`);
     return (
       <div className="QuizCreateContainer">
         <form className="createQuiz" onSubmit={this.createQuestion}>

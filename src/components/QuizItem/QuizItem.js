@@ -9,7 +9,6 @@ class QuizItem extends Component {
     super();
     this.state = {
       quizzes: [],
-      // host: this.props.user,
     };
   }
 

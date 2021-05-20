@@ -79,13 +79,6 @@ class HostSigInPage extends Component {
           <h1>Host Sign In</h1>
           <div className="HostSignInForm">
             <form onSubmit={this._handleSubmit}>
-              {/* <input
-                placeholder="username"
-                type="text"
-                name="username"
-                value={username}
-                onChange={this._handleChange}
-              /> */}
               <input
                 placeholder="email"
                 type="text"

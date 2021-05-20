@@ -62,6 +62,5 @@ class QuizDetails extends Component {
     );
   }
 }
-// <input type="submit"/>
 
 export default QuizDetails;

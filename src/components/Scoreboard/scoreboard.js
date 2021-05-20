@@ -16,7 +16,7 @@ class Scoreboard extends Component {
       axios
         .get(`https://gahoot-server.herokuapp.com/users.json`)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
         });
       this.setState({ game: this.props.game });
       // fetch users again recursively
@@ -27,9 +27,6 @@ class Scoreboard extends Component {
   }
 
   render() {
-    //render sorted users
-    // if(this.state.sortedPlayers !== []){ return }
-    // console.log(this.state.game ? ("players", this.state.game) : 0);
     let allPlayers = [];
     if (this.state.game.players) {
       for (let i = 0; i < this.state.game.players.length; i++) {

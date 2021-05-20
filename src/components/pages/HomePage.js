@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import Scoreboard from '../Scoreboard/Scoreboard';
 
 class HomePage extends Component {
   constructor(props) {

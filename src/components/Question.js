@@ -19,27 +19,10 @@ class Question extends Component {
   }
 
   _handleChange(event) {
-    // this.setState(prevState => {
-    //   let questionItem = Object.assign({}, this.state.questionItem);
-    //   console.log(questionItem);
-    //   console.log(event.target.name);
-    //   questionItem.[event.target.name] = event.target.value;
-    //   return { questionItem };
-    // })
     this.props.onChange(event, this.props.value);
   }
 
   _onChange(event) {
-    // event.persist();
-    // this.setState((prevState) => {
-    //   let questionItem = Object.assign({}, this.state.questionItem);
-    //   console.log(questionItem);
-    //   console.log(event.target.name);
-    //   questionItem.[event.target.name] = event.target.files[0];
-    //   console.log(questionItem);
-    //   return { questionItem };
-    // })
-
     this.props.onUpload(event, this.props.value);
   }
 

@@ -12,7 +12,6 @@ class GamePlayPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // quiz_id: this.props.match.params.id,
       quiz_id: this.props.quiz_id,
       questions: [],
       roundOver: false,
@@ -46,9 +45,6 @@ class GamePlayPage extends Component {
     this.setState((prevState) => ({
       activeQuestion: prevState.activeQuestion + 1,
     }));
-    // this.setState((prevState) => ({
-    //   seconds: prevState.seconds = 0
-    // }));
   };
 
   checkAnswer = (answer) => {
@@ -116,7 +112,5 @@ const GameWrapper = styled.div`
   grid-gap: 1.2rem;
   padding: 2rem;
 `;
-
-// render(<Kahoot />, document.getElementById('root'));
 
 export default GamePlayPage;

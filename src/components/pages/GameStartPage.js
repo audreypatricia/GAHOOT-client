@@ -19,9 +19,9 @@ class GameStartPage extends Component {
 
   componentDidMount() {
     const showGameState = () => {
-      console.log("showGameState");
+      // console.log("showGameState");
       if (this.state.startGame === false) {
-        console.log("startGame = false ");
+        // console.log("startGame = false ");
 
         axios
           .get(
@@ -29,8 +29,8 @@ class GameStartPage extends Component {
           )
           .then((results) => {
             this.setState({ startGame: results.data.gameStart });
-            console.log("this is the results: ", results);
-            console.log(this.state.startGame);
+            // console.log("this is the results: ", results);
+            // console.log(this.state.startGame);
             // setTimeout(showGameState, 1000);
           });
       }
@@ -48,7 +48,7 @@ class GameStartPage extends Component {
         { gameStart: true }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       });
     // PLAYER ALSO NEEDS TO CONTINUOUSLY EVERY INTERVAL CHECK CHANGES TO THIS COLUMN
   }
@@ -57,9 +57,9 @@ class GameStartPage extends Component {
     this.setState({ game: game });
   }
   render() {
-    console.log("GameStart host: ", this.state.host);
-    console.log(this.state.startGame);
-    console.log(this.state.host);
+    // console.log("GameStart host: ", this.state.host);
+    // console.log(this.state.startGame);
+    // console.log(this.state.host);
 
     return (
       <div className="GameStartPage">

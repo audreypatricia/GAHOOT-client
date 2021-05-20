@@ -26,7 +26,7 @@ class PlayerSignInPage extends Component {
       .then((response) => {
         for (let i = 0; i < response.data.length; i++) {
           this.setState({ pins: [...this.state.pins, response.data[i].pin] });
-          console.log(this.state.pins);
+          // console.log(this.state.pins);
         }
       });
   }
@@ -53,9 +53,7 @@ class PlayerSignInPage extends Component {
       pin: pin,
     };
 
-    console.log(user);
-
-    // const random_pin = "nice";
+    // console.log(user);
 
     if (this.state.pins.indexOf(this.state.pin) !== -1) {
       axios
@@ -67,7 +65,7 @@ class PlayerSignInPage extends Component {
         .then((response) => {
           if (response.data.status === "created") {
             this.props.handleLogin(response.data);
-            console.log(response);
+            // console.log(response);
             this.setState({ user_id: response.data.user.id });
             //call backend to do work
 
@@ -76,7 +74,7 @@ class PlayerSignInPage extends Component {
                 `https://gahoot-server.herokuapp.com/users/${this.state.user_id}/getQuiz`
               )
               .then((response) => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                   quiz_id: response.data.quiz_id,
                   game_id: response.data.game_id,
@@ -96,8 +94,6 @@ class PlayerSignInPage extends Component {
   };
 
   redirect = () => {
-    // this.props.history.push(`/gamestart/${this.state.quiz_id}`);
-
     this.props.history.push({
       pathname: `/gamestart/${this.state.quiz_id}/${this.state.game_id}`,
     });
