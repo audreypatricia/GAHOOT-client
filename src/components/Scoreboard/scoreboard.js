@@ -15,7 +15,6 @@ class Scoreboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      game_id: 18,
       players: [],
       sortedPlayers: [],
       game: this.props.game,
@@ -28,28 +27,7 @@ class Scoreboard extends Component {
         .get(`https://gahoot-server.herokuapp.com/users.json`)
         .then((response) => {
           console.log(response.data);
-          // let players = response.data.players;
-          // this.setState({ players: players });
-          // console.log(players);
-          // let sortedArray = this.state.players.sort(function (a, b) {
-          //   return b[2] - a[2];
-          // });
-          // console.log(sortedArray);
-          // this.setState({ sortedPlayers: sortedArray });
-          // console.log(response);
-          // console.log(this.state.game)
         });
-
-      // if(this.state.players.length > 0){
-      //   // sort based on scores
-      //   console.log("here");
-      //   let sortedArray = this.state.players.sort(function(a, b) {
-      //     return b[2] - a[2];
-      //   });
-      //   console.log(sortedArray)
-      //   this.setState({ sortedPlayers: sortedArray });
-      //
-      // }
       this.setState({ game: this.props.game });
       // fetch users again recursively
       setTimeout(fetchPlayers, 8000);

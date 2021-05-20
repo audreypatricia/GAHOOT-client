@@ -18,9 +18,8 @@ class GamePlayPage extends Component {
         questions: [],
         roundOver: false,
         player: this.props.user,
-        score: ""
+        score: 0
       }
-
 
     axios.get('https://gahoot-server.herokuapp.com/questions.json').then( (result) => {
       // console.log(result.data);
@@ -40,9 +39,7 @@ class GamePlayPage extends Component {
       });
       // console.log(questions);
     })
-
   }
-
 
 
   updateQuestion = () => {
@@ -64,7 +61,7 @@ class GamePlayPage extends Component {
       axios.get(`https://gahoot-server.herokuapp.com/users/${this.state.player.id}.json`).then((response)=>{
         this.setState({score: response.data.user.score})
 
-        axios.post(`https://gahoot-server.herokuapp.com/users/${this.state.player.id}.json`,{score:parseInt(this.state.score)+73})
+        axios.put(`https://gahoot-server.herokuapp.com/users/${this.state.player.id}.json`,{score: this.state.score + Math.floor(Math.random() * 100 ) })
       })
 
     } else {
@@ -80,7 +77,7 @@ class GamePlayPage extends Component {
     }
 
     if (this.state.activeQuestion === this.state.questions.length) {
-      return (<ScoreBoard/>)
+      return "That's all folks"
     }
 
     // console.log(this.state.roundOver); //true

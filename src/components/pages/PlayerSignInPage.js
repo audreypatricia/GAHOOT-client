@@ -15,7 +15,8 @@ class PlayerSignInPage extends Component {
       errors: "",
       pins: [],
       quiz_id: '',
-      user_id: ''
+      user_id: '',
+      game_id: '',
     };
   }
 
@@ -51,6 +52,7 @@ class PlayerSignInPage extends Component {
       password_confirmation: password_confirmation,
       host: host,
       pin: pin,
+
     };
 
     console.log(user);
@@ -75,7 +77,10 @@ class PlayerSignInPage extends Component {
             axios.get(`https://gahoot-server.herokuapp.com/users/${this.state.user_id}/getQuiz`).then((response) => {
 
               console.log(response)
-              this.setState({ quiz_id: response.data.quiz_id });
+              this.setState({
+                quiz_id: response.data.quiz_id,
+                game_id: response.data.game_id
+              });
               this.redirect();
             })
 
@@ -92,8 +97,12 @@ class PlayerSignInPage extends Component {
   };
 
   redirect = () => {
-    debugger;
-    this.props.history.push(`/gamestart/${this.state.quiz_id}`);
+    // this.props.history.push(`/gamestart/${this.state.quiz_id}`);
+
+    this.props.history.push({
+      pathname: `/gamestart/${this.state.quiz_id}/${this.state.game_id}`,
+
+})
   };
 
   _handleErrors = () => {
