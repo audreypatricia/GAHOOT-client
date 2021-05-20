@@ -352,3 +352,9 @@ label {
   top:10vh;
   left:70vw;
 }
+
+.GameStartPage {
+  background-image: url(./images/playerSignInBackground.png);
+  background-size: cover;
+  height: 97vh;
+}
