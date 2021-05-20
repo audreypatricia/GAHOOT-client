@@ -340,3 +340,15 @@ label {
   border: none;
   background-color: #27890d;
 }
+
+.scoreboard{
+  color: orange;
+  background-color: white;
+  width: 20vw;
+  height: 25vh;
+  border-radius: 1em;
+  text-align: center;
+  position: absolute;
+  top:10vh;
+  left:70vw;
+}
