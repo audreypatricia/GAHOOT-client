@@ -9,6 +9,7 @@ class PinBox extends Component {
       selectedQuiz: this.props.quiz_id,
       game: "",
       numberOfPlayers: 0,
+      user: this.props.user
     };
     this.createGame = this.createGame.bind(this);
   }

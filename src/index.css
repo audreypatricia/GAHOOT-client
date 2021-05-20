@@ -36,6 +36,10 @@ code {
   display: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .nav {
   text-align: right;
   height: 4vh;
@@ -49,6 +53,11 @@ nav a {
   color: white;
   line-height: 4vh;
   font-size: 150%;
+}
+
+h1 {
+  color: white;
+  text-align: center;
 }
 
 .PlayerSignInPage {
@@ -225,7 +234,7 @@ nav a {
 }
 
 div.PinBox {
-  margin: 10px;
+  /* margin: 10px; */
   background-color: white;
   border-radius: 1em;
   width: 20vw;
@@ -370,6 +379,8 @@ label {
   top: 10vh;
   left: 70vw;
   font-family: Cabin Sketch;
+  width: 40%;
+  height: 35%;
 }
 
 .scoreboard h2 {
@@ -381,6 +392,7 @@ label {
   background-image: url(./images/playerSignInBackground.png);
   background-size: cover;
   height: 97vh;
+  position: relative;
 }
 
 div.QuizItems {
@@ -433,7 +445,7 @@ div.grid {
   left: 0;
 }
 
-div.HomePageDiv {
+/* div.HomePageDiv {
   font-family: Cabin Sketch;
   background-color: #fbfaf5;
   border-radius: 0.5em;
@@ -441,7 +453,8 @@ div.HomePageDiv {
   color: black;
   line-height: 35vh;
   font-size: 200%;
-}
+} */
+
 
 .GameStartMenu {
   color: black;
@@ -558,3 +571,22 @@ input::-webkit-input-placeholder {
   color: white;
 }
 
+ .quiz-links {
+   color: white;
+   display: block;
+   text-align: center;
+   margin: 3%;
+ }
+
+ .quiz-links:hover {
+   font-weight: bold;
+ }
+
+ .success-create{
+   text-align: center;
+ }
+
+ .waiting-text{
+   text-align: center;
+  color: black;
+ }

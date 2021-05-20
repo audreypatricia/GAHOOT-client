@@ -1,7 +1,15 @@
+<<<<<<< HEAD
+import React, { Component } from 'react';
+import axios from 'axios';
+import Question from './Question'
+import QuizDetails from './QuizDetails'
+import { Link } from 'react-router-dom';
+=======
 import React, { Component } from "react";
 import axios from "axios";
 import Question from "./Question";
 import QuizDetails from "./QuizDetails";
+>>>>>>> 0648a7a9f9aa17047d3417b7fef616dfd1f2a748
 
 class QuizQuestions extends Component {
   constructor(props) {
@@ -272,6 +280,11 @@ class QuizQuestions extends Component {
 
           <input className="createNewQuiz" type="submit" value="Create!" />
         </form>
+        <div className={`success-create ${this.state.created ? "": "hidden"}`} >
+          <h2>Quiz Created!</h2>
+          <Link className="quiz-links" to={'quiz-create'}>Create Another Quiz?</Link>
+          <Link className="quiz-links" to={'quiz-index'}>Quiz Index</Link>
+        </div>
       </div>
     );
   }
