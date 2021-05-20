@@ -10,7 +10,6 @@ class HostSigInPage extends Component {
       email: "",
       password: "",
       errors: "",
-
     };
   }
 
@@ -51,8 +50,6 @@ class HostSigInPage extends Component {
           });
         }
         // console.log(response);
-
-
       })
       .catch((error) => console.log("api errors:", error));
   };
@@ -82,13 +79,6 @@ class HostSigInPage extends Component {
           <h1>Host Sign In</h1>
           <div className="HostSignInForm">
             <form onSubmit={this._handleSubmit}>
-              {/* <input
-                placeholder="username"
-                type="text"
-                name="username"
-                value={username}
-                onChange={this._handleChange}
-              /> */}
               <input
                 placeholder="email"
                 type="text"
@@ -105,7 +95,7 @@ class HostSigInPage extends Component {
               />
 
               <button placeholder="submit" type="submit">
-                Host Log In
+                Sign In
               </button>
 
               <div>
