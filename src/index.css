@@ -407,7 +407,7 @@ div.CreateQuizButton {
 div.grid {
   display: grid;
   max-width: 960px;
-  margin: 50px auto;
+  margin: 0 auto;
   grid-gap: 40px;
   grid-template-columns: repeat(3, 1fr)
 }
@@ -454,5 +454,3 @@ div.HomePageDiv {
   border-radius: 1em;
   text-align: center;
  }
-
-
