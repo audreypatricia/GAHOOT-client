@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import DisplayQuestion from '../DisplayQuestion';
 import OptionList from '../OptionList';
 import TimeCircle from '../TimeCircle';
-<<<<<<< HEAD
-import ScoreBoard from '../Scoreboard/Scoreboard';
-=======
 import ScoreBoard from '../Scoreboard/scoreboard.js';
->>>>>>> 10b470cbbd4baf174c437c25c9d4fd2f663ac1ff
 import axios from 'axios';
 
 import styled from 'styled-components';
@@ -21,7 +17,7 @@ class GamePlayPage extends Component {
         quiz_id: this.props.quiz_id,
         questions: [],
         roundOver: false,
-
+        user: this.props.User,
 
       }
 

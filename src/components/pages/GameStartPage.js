@@ -8,7 +8,7 @@ class GameStartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        host: this.props.user,
+        host: '',
         startGame: false,
         game: ''
       }
@@ -17,7 +17,8 @@ class GameStartPage extends Component {
     }
 
     startGame(){
-      this.setState({startGame: true});
+      this.setState({startGame: true,
+      host: this.props.user});
     }
 
     getGame(game) {
@@ -34,7 +35,7 @@ class GameStartPage extends Component {
           <PinBox quiz_id={ this.props.match.params.id } passGame={this.getGame}/>
           <button onClick={this.startGame}>Start the game!</button>
 
-          <GamePlayPage quiz_id={this.props.match.params.id} startGame={this.state.startGame}/>
+          <GamePlayPage quiz_id={this.props.match.params.id} startGame={this.state.startGame} user={this.state.host}/>
           <ScoreBoard game={this.state.game}/>
           </div> );
     }
