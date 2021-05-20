@@ -342,7 +342,7 @@ label {
 }
 
 .scoreboard{
-  color: orange;
+  color: red;
   background-color: white;
   width: 20vw;
   height: 25vh;
@@ -351,6 +351,12 @@ label {
   position: absolute;
   top:10vh;
   left:70vw;
+  font-family: Cabin Sketch;
+}
+
+.scoreboard p{
+  color: black;
+  font-family: Cabin Sketch;
 }
 
 .GameStartPage {
@@ -358,3 +364,26 @@ label {
   background-size: cover;
   height: 97vh;
 }
+
+.GameStartMenu {
+  color: black;
+  background-color: white;
+  width: 20vw;
+  height: 25vh;
+  border-radius: 1em;
+  text-align: center;
+  position: absolute;
+  top:10vh;
+  left:10vw;
+  /* font-family: Josefin Sans; */
+  font-size: 100%;
+}
+
+.GameStartMenu button{
+  font-size: 140%;
+  margin-top: 2vh;
+  width:15vw;
+  background-color:green;
+  color: white;
+  border-radius: 0.5em;
+ }

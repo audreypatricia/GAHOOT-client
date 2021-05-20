@@ -30,9 +30,14 @@ class GameStartPage extends Component {
 
     return (
       <div className="GameStartPage">
-        <h1>Game start</h1>
-        <PinBox quiz_id={this.props.match.params.id} passGame={this.getGame} />
-        <button onClick={this.startGame}>Start the game!</button>
+        <div class="GameStartMenu">
+          <h1>Game start</h1>
+          <PinBox
+            quiz_id={this.props.match.params.id}
+            passGame={this.getGame}
+          />
+          <button onClick={this.startGame}>Start the game!</button>
+        </div>
 
         <GamePlayPage
           quiz_id={this.props.match.params.id}

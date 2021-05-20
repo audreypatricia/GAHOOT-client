@@ -12,7 +12,17 @@ div.PinBox {
   text-align: center;
   font-family: Cabin Sketch;
   position: absolute;
-  top:10vh;
-  left:40vw;
+  top:0vh;
+  left:30vw;
   font-size: 150%;
+  position: absolute;
 }
+
+.PinBox input{
+  font-size: 90%;
+  margin-top: 2vh;
+  width:15vw;
+  background-color:orange;
+  color: white;
+  border-radius: 0.5em;
+ }
