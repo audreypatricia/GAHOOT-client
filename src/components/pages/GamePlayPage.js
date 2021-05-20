@@ -22,11 +22,11 @@ class GamePlayPage extends Component {
     axios
       .get("https://gahoot-server.herokuapp.com/questions.json")
       .then((result) => {
-        // console.log(result.data);
-        let data = result.data;
+        console.log(result.data);  let data = result.data;
         let questions = [];
         // console.log(this.state.quiz_id);
         for (let i = 0; i < data.length; i++) {
+
           if (data[i].quiz_id.toString() === this.state.quiz_id) {
             questions.push(data[i]);
           }
