@@ -73,11 +73,11 @@ class GamePlayPage extends Component {
   renderGame = () => {
     // console.log(this.props.startGame);
     if(this.props.startGame === false){
-      return <div></div>
+      return <GameWrapper>"Waiting on "</GameWrapper>
     }
 
     if (this.state.activeQuestion === this.state.questions.length) {
-      return "That's all folks"
+      return <GameWrapper>"That's all folks"</GameWrapper>
     }
 
     // console.log(this.state.roundOver); //true
