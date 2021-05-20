@@ -233,6 +233,16 @@ nav a {
  color: white;
 }
 
+div.PinBox {
+  margin: 10px;
+  background-color: white;
+  border-radius: 0.5em;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Cabin Sketch;
+}
+
 .QuizCreateContainer {
   margin: 0 auto;
   max-width: 960px;
@@ -365,6 +375,53 @@ label {
   height: 97vh;
 }
 
+div.QuizItems {
+  display: grid;
+  max-width: 600px;
+  margin: 50px auto;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+div.QuizItemDiv {
+  font-family: Cabin Sketch;
+  background-color: #FBFAF5;
+  border-radius: 0.5em;
+  padding: 2em;
+}
+
+form.Quiz {
+    text-align: center;
+}
+
+.QuizIndexHead {
+  font-family: Cabin Sketch;
+  text-align: center;
+  color: #FBFAF5;
+  font-size: 300%;
+}
+div.CreateQuizButton {
+  text-align: center;
+}
+
+div.grid {
+  display: grid;
+  max-width: 960px;
+  margin: 50px auto;
+  grid-gap: 40px;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+div.HomePageDiv {
+  font-family: Cabin Sketch;
+  background-color: #FBFAF5;
+  border-radius: 0.5em;
+  padding: 2em;
+  color: black;
+  line-height: 35vh;
+  font-size: 200%;
+}
+
 .GameStartMenu {
   color: black;
   background-color: white;
@@ -387,3 +444,15 @@ label {
   color: white;
   border-radius: 0.5em;
  }
+
+ .HomePageForm {
+  background-color: white;
+  height: 35vh;
+  width: 25vw;
+  margin: 0 auto;
+  margin-top: 10vh;
+  border-radius: 1em;
+  text-align: center;
+ }
+
+

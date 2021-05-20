@@ -18,6 +18,8 @@ class GameStartPage extends Component {
 
   startGame() {
     this.setState({ startGame: true });
+    // THIS NEEDS TO POST TO DATABASE UNDER A NEW COLUMN (STARTGAME) TO TRUE,
+    // PLAYER ALSO NEEDS TO CONTINUOUSLY EVERY INTERVAL CHECK CHANGES TO THIS COLUMN
   }
 
   getGame(game) {
@@ -50,21 +52,6 @@ class GameStartPage extends Component {
   }
 }
 
-//if need a new page for game:
-// <StartGameButton quiz_id={this.props.match.params.id}/>
-class StartGameButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
-  render() {
-    return (
-      <div className="button">
-        <Link to={"/gameplay/" + this.props.quiz_id}>Start Game</Link>
-      </div>
-    );
-  }
-}
 
 export default GameStartPage;

@@ -4,7 +4,9 @@ import {Link} from "react-router-dom";
 class CreateQuizButton extends Component {
   render() {
     return(
-      <Link to='/quiz-create'>Click Me</Link>
+      <div className="CreateQuizButton">
+      <Link to='/quiz-create'><button>Create Quiz</button></Link>
+      </div>
     );
   }
 }
