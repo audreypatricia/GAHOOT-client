@@ -12,12 +12,13 @@ import axios from "axios";
 // );
 
 class Scoreboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       game_id: 18,
       players: [],
       sortedPlayers: [],
+      game: this.props.game,
     };
   }
   componentDidMount() {
@@ -26,15 +27,17 @@ class Scoreboard extends Component {
       axios
         .get(`https://gahoot-server.herokuapp.com/users.json`)
         .then((response) => {
-          let players = response.data.players;
-          this.setState({ players: players });
-          console.log(players);
-
-          let sortedArray = this.state.players.sort(function (a, b) {
-            return b[2] - a[2];
-          });
-          console.log(sortedArray);
-          this.setState({ sortedPlayers: sortedArray });
+          console.log(response.data);
+          // let players = response.data.players;
+          // this.setState({ players: players });
+          // console.log(players);
+          // let sortedArray = this.state.players.sort(function (a, b) {
+          //   return b[2] - a[2];
+          // });
+          // console.log(sortedArray);
+          // this.setState({ sortedPlayers: sortedArray });
+          // console.log(response);
+          // console.log(this.state.game)
         });
 
       // if(this.state.players.length > 0){
@@ -47,9 +50,10 @@ class Scoreboard extends Component {
       //   this.setState({ sortedPlayers: sortedArray });
       //
       // }
-
+      this.setState({ game: this.props.game });
       // fetch users again recursively
       setTimeout(fetchPlayers, 8000);
+      // setInterval(this.setState({no:""}),3000)
     };
     fetchPlayers();
   }
@@ -57,9 +61,24 @@ class Scoreboard extends Component {
   render() {
     //render sorted users
     // if(this.state.sortedPlayers !== []){ return }
+    let a = this.state.game ? ("players", this.state.game) : 0;
+    console.log(a);
+    let allPlayers = [];
+    if (this.state.game.players) {
+      for (let i = 0; i < this.state.game.players.length; i++) {
+        allPlayers.push(
+          <div>
+            <p>Player username:{this.state.game.players[i][2]}</p>
+            <p>Player score:{this.state.game.players[i][3]}</p>
+          </div>
+        );
+      }
+    }
 
     return (
       <div className="player-list">
+        <h1>Scoreboard</h1>
+        {allPlayers}
         {/* {this.state.sortedPlayers.map( (p) => <div className="player-container"><h2 key={p[1]}>{p[1]} => {p[2]}</h2></div> )} */}
       </div>
     );

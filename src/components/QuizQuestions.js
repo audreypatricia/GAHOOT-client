@@ -7,15 +7,7 @@ class QuizQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // question: '',
-      // option1: '',
-      // option2: '',
-      // option3: '',
-      // option4: '',
-      // answer: '',
-      // image: {},
-      // quiz_id: 12,
-      quiz: { title: '', category: '', username: '', user_id: 1 }, // TODO: need to get user_id from session
+      quiz: { title: '', category: '', username: '', user_id: this.props.user.id }, // TODO: need to get user_id from session
       questions: [
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
@@ -127,7 +119,7 @@ class QuizQuestions extends Component {
     }
 
 
-
+    form.append("quiz", JSON.stringify(this.state.quiz));
     form.append("questions", JSON.stringify(questionData));
 
 
@@ -153,8 +145,8 @@ class QuizQuestions extends Component {
   render() {
     console.log(`quiz questions User: ${this.state.user}`);
     return(
-      <div>
-        <form onSubmit={this.createQuestion}>
+      <div className="QuizCreateContainer">
+        <form className="createQuiz" onSubmit={this.createQuestion}>
 
           <QuizDetails onChange={this._handleQuizChange} user={this.state.user}/>
 
@@ -169,7 +161,7 @@ class QuizQuestions extends Component {
           <Question onChange={this._handleChange} onUpload={this._onChange} value="9"/>
           <Question onChange={this._handleChange} onUpload={this._onChange} value="10"/>
 
-          <input type="submit"/>
+          <input className="createNewQuiz" type="submit" value="Create!"/>
         </form>
       </div>
     );
