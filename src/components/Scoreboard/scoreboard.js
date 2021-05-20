@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
+// import "./scoreboard.styles.css";
 
 // export const PlayerList = props => (
 //   <div className='player-list'>
@@ -76,8 +76,8 @@ class Scoreboard extends Component {
     }
 
     return (
-      <div className="player-list">
-        <h1>Scoreboard</h1>
+      <div className="scoreboard">
+        <h2>Scoreboard</h2>
         {allPlayers}
         {/* {this.state.sortedPlayers.map( (p) => <div className="player-container"><h2 key={p[1]}>{p[1]} => {p[2]}</h2></div> )} */}
       </div>
