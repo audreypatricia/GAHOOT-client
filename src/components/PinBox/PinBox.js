@@ -10,6 +10,7 @@ class PinBox extends Component {
       selectedQuiz: this.props.quiz_id,
       game: '',
       numberOfPlayers: 0,
+      user: this.props.user
     };
     this.createGame = this.createGame.bind(this);
   }
@@ -51,14 +52,16 @@ class PinBox extends Component {
   render() {
     return(
       <div className="PinBox-component">
-      <div className="PinBox">
-      <h4> Game Pin: </h4>
-      <p> { this.state.gamePin } </p>
-      <input onClick={this.createGame} type='button' value="Create Game" />
-      </div>
-      <div className="WaitingRoom">
-        <h3> {this.state.numberOfPlayers} Players have entered the game </h3>
-      </div>
+        <div className="PinBox" >
+          <h2 className={this.state.user.host ? "create_game": "hidden"}> Game Pin: </h2>
+          <h2 className={this.state.game !== '' ? '':'invisible'}> {this.state.gamePin} </h2>
+          <input className={this.state.user.host ? "create_game": "hidden"} onClick={this.createGame} type='button' value="Create Game" />
+          <h2 className={this.state.user.host ? "hidden": "waiting-text"}> Waiting for other players ...</h2>
+        </div>
+
+        <div className="waiting_room">
+          <h3 className={ this.state.user.host ? "": "hidden"}> {this.state.numberOfPlayers} Players have entered the game </h3>
+        </div>
       </div>
     );
   }

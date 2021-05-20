@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Question from './Question'
 import QuizDetails from './QuizDetails'
+import { Link } from 'react-router-dom';
 
 class QuizQuestions extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class QuizQuestions extends Component {
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
         {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
       ],
-      user: this.props.user
+      user: this.props.user,
+      created: false,
     }
 
     this._handleChange = this._handleChange.bind(this);
@@ -126,27 +128,25 @@ class QuizQuestions extends Component {
 
     console.log(...form);
 
-    fetch(`http://localhost:3001/questions.json`, {
+    fetch(`https://gahoot-server.herokuapp.com/questions.json`, {
             method: "POST",
             body: form,
             referrerPolicy: 'origin-when-cross-origin',
         }).then( (response) => {
           console.log(response);
+          this.setState({ created: true });
         }).catch(error => {
           console.log(error.message);
         })
 
-    // axios.post('https://gahoot-server.herokuapp.com/questions.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
-    // .catch(error => {
-    //   console.log(error.message);
-    // })
+
   }
 
   render() {
     console.log(`quiz questions User: ${this.state.user}`);
     return(
       <div className="QuizCreateContainer">
-        <form className="createQuiz" onSubmit={this.createQuestion}>
+        <form className={`createQuiz ${this.state.created ? "hidden": " "}`} onSubmit={this.createQuestion}>
 
           <QuizDetails onChange={this._handleQuizChange} user={this.state.user}/>
 
@@ -163,6 +163,11 @@ class QuizQuestions extends Component {
 
           <input className="createNewQuiz" type="submit" value="Create!"/>
         </form>
+        <div className={`success-create ${this.state.created ? "": "hidden"}`} >
+          <h2>Quiz Created!</h2>
+          <Link className="quiz-links" to={'quiz-create'}>Create Another Quiz?</Link>
+          <Link className="quiz-links" to={'quiz-index'}>Quiz Index</Link>
+        </div>
       </div>
     );
   }

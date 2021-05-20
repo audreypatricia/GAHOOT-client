@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import GamePlayPage from "./GamePlayPage";
 import ScoreBoard from "../Scoreboard/scoreboard.js";
 import axios from 'axios';
+// import mp3_file from '../kahoot-music.mp3';
+import ReactAudioPlayer from 'react-audio-player';
 
 class GameStartPage extends Component {
   constructor(props) {
@@ -60,10 +62,11 @@ class GameStartPage extends Component {
     return (
       <div className="GameStartPage">
         <div class="GameStartMenu">
-          <h1>Game start</h1>
+          <h1>Let's play some Gahoot! </h1>
           <PinBox
             quiz_id={this.props.match.params.id}
             passGame={this.getGame}
+            user={this.props.user}
           />
           <button onClick={this.startGame}>Start the game!</button>
         </div>
@@ -76,6 +79,7 @@ class GameStartPage extends Component {
           game={this.state.game}
         />
         <ScoreBoard game={this.state.game} />
+
       </div>
     );
   }

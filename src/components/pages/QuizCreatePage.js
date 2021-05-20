@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import QuizQuestions from '../QuizQuestions';
-import QuizDetails from '../QuizDetails';
 import axios from 'axios';
 
 class QuizCreatePage extends Component {
@@ -14,21 +13,6 @@ class QuizCreatePage extends Component {
     }
 
     createQuiz(title, category, username){
-        // get user_id of the person creating the quiz
-        // to be changed to heroku link: https://gahoot-server.herokuapp.com/users.json
-      // axios.get('https://gahoot-server.herokuapp.com/users.json').then((response) => {
-        // console.log(response.data);
-        // let users = response.data;
-
-        // for(let i = 0; i < users.length; i++) {
-        //   if(users[i].username === username){
-        //     this.setState({ user_id: users[i].id});
-        //     console.log(this.state.user_id);
-        //     break;
-        //   }
-        // }
-
-      // });
 
       const data = {
         title: title,
