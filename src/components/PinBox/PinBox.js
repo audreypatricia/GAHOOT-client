@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import './PinBox.style.css'
 
 
 class PinBox extends Component {
@@ -22,6 +21,7 @@ class PinBox extends Component {
       this.setState({ gamePin: pin });
     }
     generateGamePin();
+    console.log(this.state.host)
   }
 
   createGame() {

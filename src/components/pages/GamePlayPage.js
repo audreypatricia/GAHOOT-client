@@ -17,8 +17,7 @@ class GamePlayPage extends Component {
         quiz_id: this.props.quiz_id,
         questions: [],
         roundOver: false,
-
-
+        host: this.props.host
       }
 
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './QuizItem.style.css'
 import axios from 'axios'
 
 const SERVER_URL = 'https://gahoot-server.herokuapp.com/quizzes.json';
