@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 class PlayButton extends Component {
   constructor(props) {
@@ -7,11 +7,11 @@ class PlayButton extends Component {
     this.state = {
       quiz: [],
     };
-    console.log(props);
+    // console.log(props);
   }
 
   _handleQuizSelection = (event) => {
-    console.log(event);
+    // console.log(event);
     let quiz = event.target.value;
     this.setState({ selectedQuiz: quiz });
   };

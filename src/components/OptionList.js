@@ -24,26 +24,23 @@ const OptionsButton = styled.button`
 `;
 
 class OptionList extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-  
-    }
+    this.state = {};
   }
-  render(){
+  render() {
     // console.log(this.props.roundOver);
-    if( this.props.roundOver === true ){
+    if (this.props.roundOver === true) {
       return (
         <OptionsListWrapper>
           <div>Waiting for other players to answer</div>
-        </OptionsListWrapper> 
-      )
-    }else{
-      return(
+        </OptionsListWrapper>
+      );
+    } else {
+      return (
         <OptionsListWrapper>
-          {this.props.answer_options.slice(0,-1).map((option,index) => (
-            <OptionsButton
-              onClick={() => this.props.checkAnswer(index)}>
+          {this.props.answer_options.slice(0, -1).map((option, index) => (
+            <OptionsButton onClick={() => this.props.checkAnswer(index)}>
               {option}
             </OptionsButton>
           ))}

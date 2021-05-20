@@ -21,17 +21,14 @@ class Nav extends Component {
 
   redirect = () => {
     this.props.history.push("/host-sign-in");
-    console.log("hi")
   };
 
   render() {
-    console.log(this.props.isLoggedIn);
+    // console.log(this.props.isLoggedIn);
     return (
       <nav className="nav">
         <div className="navlink">
           <Link to="/"> Home | </Link>
-          {/* <Link to="/gameplay">Game Play | </Link>
-          <Link to="/gamestart">Game Start | </Link> */}
           {!this.props.isLoggedIn ? (
             <Link to="/host-sign-in">Host Sign In | </Link>
           ) : null}
@@ -39,7 +36,7 @@ class Nav extends Component {
             <Link to="/host-sign-up">Host Sign Up | </Link>
           ) : null}
           {!this.props.isLoggedIn ? (
-            <Link to="/player-sign-in">Player Sign In | </Link>
+            <Link to="/player-sign-in">Player Sign In</Link>
           ) : null}
           {this.props.isLoggedIn && this.props.isHost ? (
             <Link to="/quiz-create">New Quiz | </Link>
