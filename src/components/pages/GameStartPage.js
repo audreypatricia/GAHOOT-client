@@ -8,27 +8,36 @@ class GameStartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        host: '',
+        host: this.props.user,
         startGame: false,
-        game: ''
+        game: '',
       }
       this.startGame = this.startGame.bind(this);
       this.getGame = this.getGame.bind(this);
+      
+
     }
 
     startGame(){
-      this.setState({startGame: true,
-      host: this.props.user});
+      this.setState({startGame: true});
     }
 
     getGame(game) {
       this.setState({ game: game })
     }
+
+    getUser(){
+      this.setState({ host: this.props.user });
+    }
+
+
     render() {
 
       console.log('GameStart host: ', this.state.host)
+      console.log(this.state.host == null);
       console.log(this.state.startGame);
       console.log(this.state.host);
+
 
         return (
           <div>

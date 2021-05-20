@@ -14,6 +14,7 @@ class PlayerSignInPage extends Component {
       pin: "",
       errors: "",
       pins: [],
+      quiz_id: '',
     };
   }
 
@@ -22,8 +23,9 @@ class PlayerSignInPage extends Component {
       .get("https://gahoot-server.herokuapp.com/games.json")
       .then((response) => {
         for (let i = 0; i < response.data.length; i++) {
-          this.setState({ pins: [...this.state.pins, response.data[i].pin] });
+          this.setState({ pins: [...this.state.pins, response.data[i].pin]});
           console.log(this.state.pins);
+
         }
       });
   }
@@ -60,10 +62,12 @@ class PlayerSignInPage extends Component {
           "https://gahoot-server.herokuapp.com/users",
           { user },
           { withCredentials: true }
+
         )
         .then((response) => {
           if (response.data.status === "created") {
             this.props.handleLogin(response.data);
+            console.log(response);
             this.redirect();
           } else {
             this.setState({
@@ -78,7 +82,8 @@ class PlayerSignInPage extends Component {
   };
 
   redirect = () => {
-    this.props.history.push("/gamestart");
+    debugger;
+    this.props.history.push(`/gamestart/${this.state.quiz_id}`);
   };
 
   _handleErrors = () => {
