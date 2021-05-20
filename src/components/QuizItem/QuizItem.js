@@ -26,7 +26,7 @@ class QuizItem extends Component {
     return(
       <div className='QuizItems'>
       { this.state.quizzes.map((e) => (
-        <div key={e.id}>
+        <div key={e.id} className='QuizItemDiv'>
         <form className="Quiz">
         <h3> Quiz: { e.title } </h3>
           <PlayButton id={ e.id }/>
@@ -49,7 +49,7 @@ class PlayButton extends Component {
   render(){
     return (
       <div className="button">
-    <Link to={"gamestart/" + this.props.id }>Play</Link>
+    <Link to={"gamestart/" + this.props.id }><button> Play </button></Link>
     </div>
       )
    }

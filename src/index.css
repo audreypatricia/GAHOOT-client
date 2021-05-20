@@ -362,3 +362,47 @@ label {
   top:10vh;
   left:70vw;
 }
+
+div.QuizItems {
+  display: grid;
+  max-width: 600px;
+  margin: 50px auto;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+div.QuizItemDiv {
+  font-family: Cabin Sketch;
+  background-color: #FBFAF5;
+  border-radius: 0.5em;
+  padding: 2em;
+}
+
+form.Quiz {
+    text-align: center;
+}
+
+.QuizIndexHead {
+  font-family: Cabin Sketch;
+  text-align: center;
+  color: #FBFAF5;
+  font-size: 300%;
+}
+div.CreateQuizButton {
+  text-align: center;
+}
+
+div.grid {
+  display: grid;
+  max-width: 600px;
+  margin: 50px auto;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+div.HomePageDiv {
+  font-family: Cabin Sketch;
+  background-color: #FBFAF5;
+  border-radius: 0.5em;
+  padding: 2em;
+}
