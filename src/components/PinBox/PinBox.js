@@ -32,6 +32,7 @@ class PinBox extends Component {
       .then((response) => {
         // console.log(response);
         this.setState({ game: response.data });
+        alert("Game Created!");
       });
     const callGame = () => {
       axios
@@ -71,7 +72,7 @@ class PinBox extends Component {
           <input onClick={this.createGame} type="button" value="Create Game" />
         </div>
         <div className="WaitingRoom">
-          <h3> {this.state.numberOfPlayers} Players have entered the game </h3>
+          <h4> {this.state.numberOfPlayers} Players have entered the game </h4>
         </div>
       </div>
     );

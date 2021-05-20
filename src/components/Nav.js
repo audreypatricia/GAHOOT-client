@@ -39,7 +39,7 @@ class Nav extends Component {
             <Link to="/host-sign-up">Host Sign Up | </Link>
           ) : null}
           {!this.props.isLoggedIn ? (
-            <Link to="/player-sign-in">Player Sign In | </Link>
+            <Link to="/player-sign-in">Player Sign In</Link>
           ) : null}
           {this.props.isLoggedIn && this.props.isHost ? (
             <Link to="/quiz-create">New Quiz | </Link>

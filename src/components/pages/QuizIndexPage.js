@@ -9,7 +9,7 @@ class QuizIndexPage extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="QuizIndexPage">
         <h1 className="QuizIndexHead">Quiz index</h1>
         <CreateQuizButton />
         <QuizItem />

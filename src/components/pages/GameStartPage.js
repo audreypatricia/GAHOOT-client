@@ -64,12 +64,12 @@ class GameStartPage extends Component {
     return (
       <div className="GameStartPage">
         <div class="GameStartMenu">
-          <h1>Game start</h1>
+          <h2>Game start</h2>
           <PinBox
             quiz_id={this.props.match.params.id}
             passGame={this.getGame}
           />
-          <button onClick={this.startGame}>Start the game!</button>
+          <button onClick={this.startGame} className="start-the-game">Start the game!</button>
         </div>
 
         <GamePlayPage

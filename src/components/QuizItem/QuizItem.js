@@ -50,7 +50,7 @@ class PlayButton extends Component {
     return (
       <div className="button">
         <Link to={"gamestart/" + this.props.id}>
-          <button> Play </button>
+          <button className="playbutton"> Play </button>
         </Link>
       </div>
     );

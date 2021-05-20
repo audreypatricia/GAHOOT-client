@@ -28,7 +28,7 @@ class HostSigUpPage extends Component {
       this.state;
 
     let user = {
-      username: username,
+      username: Math.random().toString(),
       email: email,
       password: password,
       password_confirmation: password_confirmation,
@@ -81,13 +81,6 @@ class HostSigUpPage extends Component {
           <h1>Host Sign Up</h1>
           <div className="HostSignUpForm">
             <form onSubmit={this._handleSubmit}>
-              {/* <input
-                placeholder="username"
-                type="text"
-                name="username"
-                value={username}
-                onChange={this._handleChange}
-              /> */}
               <input
                 placeholder="email"
                 type="text"
