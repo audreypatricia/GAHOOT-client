@@ -12,7 +12,7 @@ const OptionsListWrapper = styled.div`
 const OptionsButton = styled.button`
   align-items: center;
   border: 3px solid black;
-  border-radius: 0.05rem;
+  border-radius: 1em;
   background: cornsilk;
   display: flex;
   justify-content: center;

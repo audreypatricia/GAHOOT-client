@@ -1,10 +1,8 @@
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import Question from './Question'
 import QuizDetails from './QuizDetails'
 import { Link } from 'react-router-dom';
-
 
 class QuizQuestions extends Component {
   constructor(props) {
