@@ -35,12 +35,8 @@ class GameStartPage extends Component {
           <PinBox quiz_id={ this.props.match.params.id } passGame={this.getGame} className="PinBox"/>
           <button onClick={this.startGame}>Start the game!</button>
 
-<<<<<<< HEAD
-          <GamePlayPage quiz_id={this.props.match.params.id} startGame={this.state.startGame} host={}/>
-=======
           <GamePlayPage quiz_id={this.props.match.params.id} startGame={this.state.startGame}/>
           <ScoreBoard game={this.state.game}/>
->>>>>>> aeeb4a2d21934fa1fe77ad94c4bfd3cd1c0d6813
           </div> );
     }
 }
