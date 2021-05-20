@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
 import axios from 'axios';
 import Question from './Question'
 import QuizDetails from './QuizDetails'
 import { Link } from 'react-router-dom';
-=======
-import React, { Component } from "react";
-import axios from "axios";
-import Question from "./Question";
-import QuizDetails from "./QuizDetails";
->>>>>>> 0648a7a9f9aa17047d3417b7fef616dfd1f2a748
 
 class QuizQuestions extends Component {
   constructor(props) {

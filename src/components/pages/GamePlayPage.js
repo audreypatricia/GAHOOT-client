@@ -79,7 +79,7 @@ class GamePlayPage extends Component {
     }
 
     if (this.state.activeQuestion === this.state.questions.length) {
-      return <GameWrapper>"That's all folks"</GameWrapper>
+      return <div class="winner">"AND THE WINNER IS..."</div>
     }
 
     // console.log(this.state.roundOver); //true
