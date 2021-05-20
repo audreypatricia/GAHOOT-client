@@ -61,24 +61,38 @@ class GameStartPage extends Component {
     // console.log(this.state.startGame);
     // console.log(this.state.host);
 
+    let gameStartMenu = (
+      <div class="GameStartMenu">
+        <h2>Game start</h2>
+        <PinBox
+          quiz_id={this.props.match.params.id}
+          passGame={this.getGame}
+          user={this.props.user}
+        />
+        <button onClick={this.startGame} className="start-the-game">
+          Start the game!
+        </button>
+      </div>
+    );
+
+    let gamePlayPage = (
+      <GamePlayPage
+        quiz_id={this.props.match.params.id}
+        startGame={this.state.startGame}
+        user={this.props.user}
+        game={this.state.game}
+      />
+    );
+
+    let scoreBoard = (
+      <ScoreBoard game={this.state.game} user={this.props.user} />
+    );
+
     return (
       <div className="GameStartPage">
-        <div class="GameStartMenu">
-          <h2>Game start</h2>
-          <PinBox
-            quiz_id={this.props.match.params.id}
-            passGame={this.getGame}
-          />
-          <button onClick={this.startGame} className="start-the-game">Start the game!</button>
-        </div>
-
-        <GamePlayPage
-          quiz_id={this.props.match.params.id}
-          startGame={this.state.startGame}
-          user={this.props.user}
-          game={this.state.game}
-        />
-        <ScoreBoard game={this.state.game} />
+        {this.props.user.host ? gameStartMenu : null}
+        {!this.props.user.host ? gamePlayPage : null}
+        {this.props.user.host ? scoreBoard : null}
       </div>
     );
   }

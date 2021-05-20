@@ -88,7 +88,7 @@ class GamePlayPage extends Component {
         <DisplayQuestion
           question={this.state.questions[this.state.activeQuestion].question}
         />
-        <TimeCircle duration={10} timeoutFn={this.updateQuestion} />
+        <TimeCircle duration={20} timeoutFn={this.updateQuestion} />
         <OptionList
           answer_options={
             this.state.questions[this.state.activeQuestion].answer_options
@@ -103,7 +103,11 @@ class GamePlayPage extends Component {
   render() {
     if (this.state.questions.length === 0) return <p>...</p>;
 
-    return <GameWrapper>{this.renderGame()}</GameWrapper>;
+    return (
+      <div className="gameplay">
+        <GameWrapper>{this.renderGame()}</GameWrapper>
+      </div>
+    );
   }
 }
 

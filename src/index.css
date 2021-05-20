@@ -541,7 +541,7 @@ input::-webkit-input-placeholder {
 
 .scoreboardspan {
   color: black;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 110%;
 }
 
@@ -549,4 +549,12 @@ input::-webkit-input-placeholder {
   margin-left: 1vw;
 }
 
+.gameplay {
+  position: absolute;
+  bottom: 20vh;
+  left: 5vw;
+  margin: 0 auto;
+  width: 90vw;
+  color: white;
+}
 
