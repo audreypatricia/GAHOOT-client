@@ -5,7 +5,7 @@
 //     console.log(this.props.questions)
 //     return(
 //       <div>
-      
+
 //         { this.props.questions.map( (question, index) =>
 //         <div className="question" key={index}>
 //           <h1>{question.question}</h1>

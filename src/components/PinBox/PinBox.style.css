@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Schoolbell&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
 div.PinBox {
   margin: 10px;
@@ -12,17 +12,17 @@ div.PinBox {
   text-align: center;
   font-family: Cabin Sketch;
   position: absolute;
-  top:0vh;
-  left:30vw;
+  top: 0vh;
+  left: 30vw;
   font-size: 150%;
   position: absolute;
 }
 
-.PinBox input{
+.PinBox input {
   font-size: 90%;
   margin-top: 2vh;
-  width:15vw;
-  background-color:orange;
+  width: 15vw;
+  background-color: orange;
   color: white;
   border-radius: 0.5em;
- }
+}
