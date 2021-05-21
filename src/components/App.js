@@ -13,6 +13,7 @@ import QuizIndexPage from "./pages/QuizIndexPage";
 import Nav from "./Nav";
 import axios from "axios";
 
+
 class App extends Component {
   constructor() {
     super();

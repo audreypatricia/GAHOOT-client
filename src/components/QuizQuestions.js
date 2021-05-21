@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import axios from "axios";
-import Question from "./Question";
-import QuizDetails from "./QuizDetails";
+import React, { Component } from 'react';
+import axios from 'axios';
+import Question from './Question'
+import QuizDetails from './QuizDetails'
+import { Link } from 'react-router-dom';
 
 class QuizQuestions extends Component {
   constructor(props) {
@@ -196,7 +197,7 @@ class QuizQuestions extends Component {
 
     // console.log(...form);
 
-    fetch(`http://localhost:3001/questions.json`, {
+    fetch(`https://gahoot-server.herokuapp.com/questions.json`, {
       method: "POST",
       body: form,
       referrerPolicy: "origin-when-cross-origin",
@@ -272,6 +273,11 @@ class QuizQuestions extends Component {
 
           <input className="createNewQuiz" type="submit" value="Create!" />
         </form>
+        <div className={`success-create ${this.state.created ? "": "hidden"}`} >
+          <h2>Quiz Created!</h2>
+          <Link className="quiz-links" to={'quiz-create'}>Create Another Quiz?</Link>
+          <Link className="quiz-links" to={'quiz-index'}>Quiz Index</Link>
+        </div>
       </div>
     );
   }

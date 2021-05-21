@@ -32,8 +32,23 @@ code {
   font-size: 120%;
 }
 
+.display_question {
+  font-family: Cabin Sketch;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  text-align: center;
+  border-radius: 1em;
+  font-size: 120%;
+}
+
 .hidden {
   display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .nav {
@@ -49,6 +64,11 @@ nav a {
   color: white;
   line-height: 4vh;
   font-size: 150%;
+}
+
+h1 {
+  color: white;
+  text-align: center;
 }
 
 .PlayerSignInPage {
@@ -225,7 +245,7 @@ nav a {
 }
 
 div.PinBox {
-  margin: 10px;
+  /* margin: 10px; */
   background-color: white;
   border-radius: 1em;
   width: 20vw;
@@ -234,8 +254,8 @@ div.PinBox {
   text-align: center;
   font-family: Cabin Sketch;
   position: absolute;
-  top: 0vh;
-  left: 30vw;
+  top:35vh;
+  left: 0vw;
   font-size: 150%;
   position: absolute;
 }
@@ -244,9 +264,15 @@ div.PinBox {
   font-size: 90%;
   margin-top: 2vh;
   width: 15vw;
-  background-color: orange;
+  background-color: goldenrod;
   color: white;
   border-radius: 0.5em;
+}
+
+.PinBox input:hover {
+  color: goldenrod;
+  border: 2px solid goldenrod;
+  background-color: white;
 }
 
 .QuizCreateContainer {
@@ -303,21 +329,7 @@ label {
   height: 2em;
 }
 
-.opt-1 {
-  background-color: #e21a3b;
-}
 
-.opt-2 {
-  background-color: #1267ce;
-}
-
-.opt-3 {
-  background-color: #d89d02;
-}
-
-.opt-4 {
-  background-color: #27890d;
-}
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -363,13 +375,14 @@ label {
   color: red;
   background-color: white;
   width: 20vw;
-  height: 30vh;
+  height: 65vh;
   border-radius: 1em;
   text-align: left;
   position: absolute;
   top: 10vh;
-  left: 70vw;
+  left: 50vw;
   font-family: Cabin Sketch;
+  width: 30vw;
 }
 
 .scoreboard h2 {
@@ -381,6 +394,7 @@ label {
   background-image: url(./images/playerSignInBackground.png);
   background-size: cover;
   height: 97vh;
+  position: relative;
 }
 
 div.QuizItems {
@@ -443,6 +457,7 @@ div.HomePageDiv {
   font-size: 200%;
 }
 
+
 .GameStartMenu {
   color: black;
   background-color: white;
@@ -452,7 +467,7 @@ div.HomePageDiv {
   text-align: center;
   position: absolute;
   top: 10vh;
-  left: 10vw;
+  left: 20vw;
   /* font-family: Josefin Sans; */
   font-size: 100%;
 }
@@ -461,9 +476,15 @@ div.HomePageDiv {
   font-size: 140%;
   margin-top: 1vh;
   width: 15vw;
-  background-color: green;
+  background-color: #2d9408;
   color: white;
   border-radius: 0.5em;
+}
+
+.GameStartMenu button:hover {
+  color: #2d9408;
+  background-color: white;
+  border: 2px solid #2d9408;
 }
 
 .GameStartMenu h4 {
@@ -527,21 +548,34 @@ input::-webkit-input-placeholder {
   font-size: 140%;
   margin-top: 2vh;
   width: 15vw;
-  background-color: green;
+  background-color: #2d9408;
   color: white;
   border-radius: 0.5em;
 }
 
+.quizbutton:hover {
+  color: #2d9408;
+  background-color: white;
+  border: 2px solid #2d9408;
+}
+
 .playbutton {
-  background-color: rgb(255, 166, 0);
+  background-color: goldenrod;
   color: white;
   border-radius: 0.5em;
   font-size: 120%;
 }
 
+.playbutton:hover {
+  background-color: white;
+  color: goldenrod;
+  border: 2px solid goldenrod;
+
+}
+
 .scoreboardspan {
   color: black;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Cabin Sketch", Times, serif;
   font-size: 110%;
 }
 
@@ -550,10 +584,68 @@ input::-webkit-input-placeholder {
 }
 
 .gameplay {
-  position: absolute;
+  /* position: absolute; */
   bottom: 20vh;
   left: 5vw;
   margin: 0 auto;
   width: 90vw;
   color: white;
 }
+
+.quiz-links {
+  color: white;
+  display: block;
+  text-align: center;
+  margin: 3%;
+}
+
+.quiz-links:hover {
+  font-weight: bold;
+}
+
+.success-create{
+  text-align: center;
+}
+
+.waiting-text{
+  text-align: center;
+color: black;
+}
+
+.OptionsListWrapper{
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+}
+
+.gameplay button:nth-child(1) {
+  background-color: #e21a3b;
+}
+.gameplay button:nth-child(2) {
+  background-color: #1267ce;
+}
+
+.gameplay button:nth-child(3) {
+  background-color: #d89d02;
+}
+
+.gameplay button:nth-child(4) {
+  background-color: #27890d;
+}
+/* .opt-1 {
+  background-color: #e21a3b;
+}
+
+.opt-2 {
+  background-color: #1267ce;
+}
+
+.opt-3 {
+  background-color: #d89d02;
+}
+
+.opt-4 {
+  background-color: #27890d;
+} */
