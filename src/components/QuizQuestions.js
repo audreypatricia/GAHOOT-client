@@ -1,27 +1,112 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Question from './Question'
-import QuizDetails from './QuizDetails'
+import React, { Component } from "react";
+import axios from "axios";
+import Question from "./Question";
+import QuizDetails from "./QuizDetails";
 
 class QuizQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quiz: { title: '', category: '', username: '', user_id: this.props.user.id }, // TODO: need to get user_id from session
+      quiz: {
+        title: "",
+        category: "",
+        username: "",
+        user_id: this.props.user.id,
+      }, // TODO: need to get user_id from session
       questions: [
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
-        {question: '', image: '', option1: '', option2: '', option3:'', option4:'', answer:''},
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer: "",
+        },
       ],
-      user: this.props.user
-    }
+      user: this.props.user,
+    };
 
     this._handleChange = this._handleChange.bind(this);
     this._onChange = this._onChange.bind(this);
@@ -29,139 +114,163 @@ class QuizQuestions extends Component {
     this._handleQuizChange = this._handleQuizChange.bind(this);
   }
 
-  _handleChange(event, i){
-    // event.preventDefault();
-    // this.setState({ [event.target.name]: event.target.value});
+  _handleChange(event, i) {
     // console.log(this.state.questions[i-1]);
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let questions = this.state.questions.slice(0);
-      let questionItem = Object.assign({}, questions[i-1]);
+      let questionItem = Object.assign({}, questions[i - 1]);
       questionItem[event.target.name] = event.target.value;
-      questions[i-1] = questionItem;
+      questions[i - 1] = questionItem;
       return { questions };
-    })
-
+    });
   }
 
-  _handleQuizChange(event){
-    this.setState(prevState => {
+  _handleQuizChange(event) {
+    this.setState((prevState) => {
       let quiz = Object.assign({}, this.state.quiz);
-      quiz.[event.target.name] = event.target.value;
+      quiz[event.target.name] = event.target.value;
       return { quiz };
-    })
-
+    });
   }
 
-  _onChange(event, i){
-    // event.persist();
-    // this.setState(() => {
-    //   return {
-    //     [event.target.name]: event.target.files[0]
-    //   }
-    // })
-
+  _onChange(event, i) {
     event.persist();
     this.setState((prevState) => {
       let questions = this.state.questions.slice(0);
-      let questionItem = Object.assign({}, questions[i-1]);
-      questionItem.[event.target.name] = event.target.files[0];
-      questions[i-1] = questionItem;
+      let questionItem = Object.assign({}, questions[i - 1]);
+      questionItem[event.target.name] = event.target.files[0];
+      questions[i - 1] = questionItem;
       return { questions };
-    })
-
-
+    });
   }
 
-  createQuestion(event){
+  createQuestion(event) {
     event.preventDefault();
 
-    // const answer_options = [this.state.option1, this.state.option2, this.state.option3, this.state.option4, this.state.answer]
-    console.log(this.state.quiz);
-    // const form = new FormData()
-    // form.append("image", this.state.image);
-    // form.append("question", this.state.question);
-    // form.append("answer_options", this.state.answer_options);
+    // console.log(this.state.quiz);
     let questionsCopy = this.state.questions.slice(0);
-    console.log(questionsCopy);
+    // console.log(questionsCopy);
     let questionData = [];
 
-    for(let i = 0; i < questionsCopy.length; i++){
-      let answer_options = [ questionsCopy[i].option1, questionsCopy[i].option2, questionsCopy[i].option3, questionsCopy[i].option4, questionsCopy[i].answer];
+    for (let i = 0; i < questionsCopy.length; i++) {
+      let answer_options = [
+        questionsCopy[i].option1,
+        questionsCopy[i].option2,
+        questionsCopy[i].option3,
+        questionsCopy[i].option4,
+        questionsCopy[i].answer,
+      ];
 
-      if(questionsCopy[i].question !== ''){
+      if (questionsCopy[i].question !== "") {
         let questionObj = {
           question: questionsCopy[i].question,
           // image: questionsCopy[i].image,
-          answer_options: answer_options
-        }
+          answer_options: answer_options,
+        };
 
         questionData.push(questionObj);
       }
     }
 
-    console.log(questionData);
+    // console.log(questionData);
 
     let questionsCopy2 = this.state.questions.slice(0);
 
     let imageArray = [];
-    for(let i = 0; i < questionsCopy2.length; i++){
-      if(questionsCopy2[i].image !== ""){
+    for (let i = 0; i < questionsCopy2.length; i++) {
+      if (questionsCopy2[i].image !== "") {
         imageArray.push(questionsCopy2[i].image);
       }
     }
 
-    console.log(imageArray);
+    // console.log(imageArray);
 
     const form = new FormData();
 
     for (let i = 0; i < imageArray.length; i++) {
-      form.append('image[]', imageArray[i]);
+      form.append("image[]", imageArray[i]);
     }
-
 
     form.append("quiz", JSON.stringify(this.state.quiz));
     form.append("questions", JSON.stringify(questionData));
 
-
-
-    console.log(...form);
+    // console.log(...form);
 
     fetch(`http://localhost:3001/questions.json`, {
-            method: "POST",
-            body: form,
-            referrerPolicy: 'origin-when-cross-origin',
-        }).then( (response) => {
-          console.log(response);
-        }).catch(error => {
-          console.log(error.message);
-        })
-
-    // axios.post('https://gahoot-server.herokuapp.com/questions.json', data, {headers:{"Content-Type" : "application/json"}}).then((result) => { console.log(result)})
-    // .catch(error => {
-    //   console.log(error.message);
-    // })
+      method: "POST",
+      body: form,
+      referrerPolicy: "origin-when-cross-origin",
+    })
+      .then((response) => {
+        // console.log(response);
+      })
+      .catch((error) => {
+        // console.log(error.message);
+      });
   }
 
   render() {
-    console.log(`quiz questions User: ${this.state.user}`);
-    return(
+    // console.log(`quiz questions User: ${this.state.user}`);
+    return (
       <div className="QuizCreateContainer">
         <form className="createQuiz" onSubmit={this.createQuestion}>
+          <QuizDetails
+            onChange={this._handleQuizChange}
+            user={this.state.user}
+          />
 
-          <QuizDetails onChange={this._handleQuizChange} user={this.state.user}/>
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="1"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="2"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="3"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="4"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="5"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="6"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="7"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="8"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="9"
+          />
+          <Question
+            onChange={this._handleChange}
+            onUpload={this._onChange}
+            value="10"
+          />
 
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="1"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="2"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="3"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="4"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="5"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="6"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="7"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="8"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="9"/>
-          <Question onChange={this._handleChange} onUpload={this._onChange} value="10"/>
-
-          <input className="createNewQuiz" type="submit" value="Create!"/>
+          <input className="createNewQuiz" type="submit" value="Create!" />
         </form>
       </div>
     );
