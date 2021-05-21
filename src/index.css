@@ -635,6 +635,14 @@ color: black;
 .gameplay button:nth-child(4) {
   background-color: #27890d;
 }
+
+#auido {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+}
+
 /* .opt-1 {
   background-color: #e21a3b;
 }

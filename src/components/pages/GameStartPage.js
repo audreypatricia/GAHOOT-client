@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import GamePlayPage from "./GamePlayPage";
 import ScoreBoard from "../Scoreboard/scoreboard.js";
 import axios from "axios";
+import ReactAudioPlayer from "react-audio-player";
+import mp3_file from '../../kahoot-music.mp3';
 
 class GameStartPage extends Component {
   constructor(props) {
@@ -90,6 +92,7 @@ class GameStartPage extends Component {
 
     return (
       <div className="GameStartPage">
+        <ReactAudioPlayer id="audio" src={mp3_file} controls />
         {this.props.user.host ? gameStartMenu : null}
         {!this.props.user.host ? gamePlayPage : null}
         {this.props.user.host ? scoreBoard : null}
