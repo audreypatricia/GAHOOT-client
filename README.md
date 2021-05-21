@@ -8,7 +8,7 @@ The objective of this project was to create a clone of the trivia application [K
 
 #### <u>The Journey:</u>
 
-We started off by creating our database tables and models with Prostresql using the Ruby on Rails framework.  We planned out the models on the first day over Zoom using [miro](https://miro.com/app/dashboard/) and [lucid chart](https://lucid.app/documents#/dashboard) to help us all visualise how this project would come to life. We decided on 5 models and 1 joining table and created some seed data so that we could deploy to our cloud platform ([heroku](https://dashboard.heroku.com/login)) on day one.
+We started off by creating our database tables and models with Postgresql using the Ruby on Rails framework.  We planned out the models on the first day over Zoom using [Miro](https://miro.com/app/dashboard/) and [Lucid Chart](https://lucid.app/documents#/dashboard) to help us all visualise how this project would come to life. We decided on 5 models and 1 joining table and created some seed data so that we could deploy to our cloud platform ([Heroku](https://dashboard.heroku.com/login)) on day one.
 
 We agreed on using React for our front end and divided up the components for each team member to work on over the weekend and the following week. By Tuesday we started to merge all of the components that we could and we were hopeful that by the end of the day we would be able to run a complete game from start to finish. Unfortunately we ran into a fair few bugs and had to refactor a lot of code as well as re-thinking our models and how we would access and render our data. We spent some time discussing the flow of our application, who needed what and where and trying to accomodate each others needs by passing our data through React however we could. After a couple of days of refactoring our project we managed to get a game to run late Thursday afternoon. We added styling and some more quiz data so that we could present on the Friday. We are all very proud of our achievements this week.
 
@@ -20,10 +20,10 @@ We agreed on using React for our front end and divided up the components for eac
 
 #### <u>Things we love:</u>
 * The learning experiences including:
- * Debugging
- * Collaboration
- * Communication
- * Time management
+  * Debugging
+  * Collaboration
+  * Communication
+  * Time management
 * It works!
 * Our team!
 
@@ -35,9 +35,9 @@ We agreed on using React for our front end and divided up the components for eac
 * Passing data through React components
 
 #### <u> Stretch Goals:</u>
-* Adding music music
+* Adding lobby music
 * Using cloudinary to display images on React
-* Capturing the time
+* Capturing the time and adding to players score
 
 #### <u>Tech Stack:</u>
 * HTML/CSS
@@ -49,8 +49,8 @@ We agreed on using React for our front end and divided up the components for eac
 
 ## Our Awesome Team!
 
-![Team](/images/team.png)\
-![Paul](/images/Paul.png)
+![Team](https://github.com/audreypatricia/GAHOOT-client/blob/main/src/images/team.jpg)\
+![Paul](https://github.com/audreypatricia/GAHOOT-client/blob/main/src/images/Paul.png)
 
 
 ## Created by Audrey, David, Katie, Paul and Sam
