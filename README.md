@@ -20,10 +20,10 @@ We agreed on using React for our front end and divided up the components for eac
 
 #### <u>Things we love:</u>
 * The learning experiences including:
- * Debugging
- * Collaboration
- * Communication
- * Time management
+  * Debugging
+  * Collaboration
+  * Communication
+  * Time management
 * It works!
 * Our team!
 
