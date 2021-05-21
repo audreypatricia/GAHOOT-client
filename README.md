@@ -35,7 +35,6 @@ We agreed on using React for our front end and divided up the components for eac
 * Passing data through React components
 
 #### <u> Stretch Goals:</u>
-* Adding lobby music
 * Using cloudinary to display images on React
 * Capturing the time and adding to players score
 
