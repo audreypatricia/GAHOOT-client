@@ -656,3 +656,8 @@ color: black;
   left: 0;
   width: 50px;
 }
+
+.questionImage {
+  width: 8em;
+  text-align: center;
+}

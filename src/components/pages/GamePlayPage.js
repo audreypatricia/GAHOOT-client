@@ -91,11 +91,11 @@ class GamePlayPage extends Component {
         />
         <TimeCircle duration={10} timeoutFn={this.updateQuestion} />
         <CloudinaryContext cloudName="paulyc">
-        <Image publicId={this.state.questions[this.state.activeQuestion].image}>
+        <Image className="questionImage" publicId={this.state.questions[this.state.activeQuestion].image}>
           <Transformation
             crop="scale"
             width="300"
-            height="200"
+            height="100"
             dpr="auto"
             responsive_placeholder="blank"
           />
