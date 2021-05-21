@@ -581,6 +581,7 @@ input::-webkit-input-placeholder {
 
 .scoreboarddiv {
   margin-left: 1vw;
+  margin-bottom: 1vh;
 }
 
 .gameplay {

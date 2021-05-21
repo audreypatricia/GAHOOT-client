@@ -46,7 +46,7 @@ class Scoreboard extends Component {
               username: {this.state.sortedPlayers[i][2]} |{" "}
             </span>
             <span className="scoreboardspan">
-              score:{this.state.sortedPlayers[i][3]}
+              score: {this.state.sortedPlayers[i][3]}
             </span>
           </div>
         );
