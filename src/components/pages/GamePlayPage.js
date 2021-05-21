@@ -65,7 +65,7 @@ class GamePlayPage extends Component {
 
           axios.put(
             `https://gahoot-server.herokuapp.com/users/${this.state.player.id}.json`,
-            { score: this.state.score + Math.floor(Math.random() * 100) }
+            { score: this.state.score + 73 }
           );
         });
     } else {
