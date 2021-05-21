@@ -4,6 +4,7 @@ import OptionList from "../OptionList";
 import TimeCircle from "../TimeCircle";
 import ScoreBoard from "../Scoreboard/scoreboard.js";
 import axios from "axios";
+// import { CloudinaryContext, Transformation, Image } from ‘cloudinary-react’;
 
 import styled from "styled-components";
 import { render } from "react-dom";

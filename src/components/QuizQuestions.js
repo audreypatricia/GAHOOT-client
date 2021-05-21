@@ -22,7 +22,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer1: "",
         },
         {
           question: "",
@@ -31,7 +31,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer2: "",
         },
         {
           question: "",
@@ -40,7 +40,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer3: "",
         },
         {
           question: "",
@@ -49,7 +49,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer4: "",
         },
         {
           question: "",
@@ -58,7 +58,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer5: "",
         },
         {
           question: "",
@@ -67,7 +67,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer6: "",
         },
         {
           question: "",
@@ -76,7 +76,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer7: "",
         },
         {
           question: "",
@@ -85,7 +85,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer8: "",
         },
         {
           question: "",
@@ -94,7 +94,7 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer9: "",
         },
         {
           question: "",
@@ -103,10 +103,11 @@ class QuizQuestions extends Component {
           option2: "",
           option3: "",
           option4: "",
-          answer: "",
+          answer10: "",
         },
       ],
       user: this.props.user,
+      created: false,
     };
 
     this._handleChange = this._handleChange.bind(this);
@@ -159,7 +160,7 @@ class QuizQuestions extends Component {
         questionsCopy[i].option2,
         questionsCopy[i].option3,
         questionsCopy[i].option4,
-        questionsCopy[i].answer,
+        questionsCopy[i][`answer${i + 1}`],
       ];
 
       if (questionsCopy[i].question !== "") {
@@ -204,6 +205,7 @@ class QuizQuestions extends Component {
     })
       .then((response) => {
         // console.log(response);
+        this.setState({ created: true });
       })
       .catch((error) => {
         // console.log(error.message);
