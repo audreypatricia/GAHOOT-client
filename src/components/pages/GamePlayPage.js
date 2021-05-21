@@ -4,6 +4,7 @@ import OptionList from "../OptionList";
 import TimeCircle from "../TimeCircle";
 import ScoreBoard from "../Scoreboard/scoreboard.js";
 import axios from "axios";
+// import { CloudinaryContext, Transformation, Image } from ‘cloudinary-react’;
 
 import styled from "styled-components";
 import { render } from "react-dom";
@@ -89,6 +90,7 @@ class GamePlayPage extends Component {
           question={this.state.questions[this.state.activeQuestion].question}
         />
         <TimeCircle duration={20} timeoutFn={this.updateQuestion} />
+
         <OptionList
           answer_options={
             this.state.questions[this.state.activeQuestion].answer_options

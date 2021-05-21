@@ -59,7 +59,7 @@ class Question extends Component {
                 type="radio"
                 onChange={this._handleChange}
                 value="0"
-                name="answer"
+                name={`answer${this.props.value}`}
               />
             </div>
 
@@ -75,7 +75,7 @@ class Question extends Component {
                 type="radio"
                 onChange={this._handleChange}
                 value="1"
-                name="answer"
+                name={`answer${this.props.value}`}
               />
             </div>
           </div>
@@ -93,7 +93,7 @@ class Question extends Component {
                 type="radio"
                 onChange={this._handleChange}
                 value="2"
-                name="answer"
+                name={`answer${this.props.value}`}
               />
             </div>
 
@@ -109,7 +109,7 @@ class Question extends Component {
                 type="radio"
                 onChange={this._handleChange}
                 value="3"
-                name="answer"
+                name={`answer${this.props.value}`}
               />
             </div>
           </div>
