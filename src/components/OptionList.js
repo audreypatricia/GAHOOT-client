@@ -12,11 +12,12 @@ const OptionsListWrapper = styled.div`
 const OptionsButton = styled.button`
   align-items: center;
   border: 3px solid black;
-  border-radius: 0.05rem;
+  border-radius: 1em;
   background: cornsilk;
   display: flex;
   justify-content: center;
   color: black;
+  font-family: Cabin Sketch;
   font-size: 2.2rem;
   font-weight: bold;
   min-height: 10rem;
@@ -32,19 +33,19 @@ class OptionList extends Component {
     // console.log(this.props.roundOver);
     if (this.props.roundOver === true) {
       return (
-        <OptionsListWrapper>
+        <div class="OptionsListWrapper">
           <div>Waiting for other players to answer</div>
-        </OptionsListWrapper>
+        </div>
       );
     } else {
       return (
-        <OptionsListWrapper>
+        <div class="OptionsListWrapper">
           {this.props.answer_options.slice(0, -1).map((option, index) => (
             <OptionsButton onClick={() => this.props.checkAnswer(index)}>
               {option}
             </OptionsButton>
           ))}
-        </OptionsListWrapper>
+        </div>
       );
     }
   }
