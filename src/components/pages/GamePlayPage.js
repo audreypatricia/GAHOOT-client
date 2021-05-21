@@ -88,7 +88,7 @@ class GamePlayPage extends Component {
         <DisplayQuestion
           question={this.state.questions[this.state.activeQuestion].question}
         />
-        <TimeCircle duration={20} timeoutFn={this.updateQuestion} />
+        <TimeCircle duration={10} timeoutFn={this.updateQuestion} />
         <OptionList
           answer_options={
             this.state.questions[this.state.activeQuestion].answer_options

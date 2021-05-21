@@ -318,21 +318,7 @@ label {
   height: 2em;
 }
 
-.opt-1 {
-  background-color: #e21a3b;
-}
 
-.opt-2 {
-  background-color: #1267ce;
-}
-
-.opt-3 {
-  background-color: #d89d02;
-}
-
-.opt-4 {
-  background-color: #27890d;
-}
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -451,7 +437,7 @@ div.grid {
   left: 0;
 }
 
-/* div.HomePageDiv {
+div.HomePageDiv {
   font-family: Cabin Sketch;
   background-color: #fbfaf5;
   border-radius: 0.5em;
@@ -459,7 +445,7 @@ div.grid {
   color: black;
   line-height: 35vh;
   font-size: 200%;
-} */
+}
 
 
 .GameStartMenu {
@@ -596,22 +582,60 @@ input::-webkit-input-placeholder {
   color: white;
 }
 
- .quiz-links {
-   color: white;
-   display: block;
-   text-align: center;
-   margin: 3%;
- }
+.quiz-links {
+  color: white;
+  display: block;
+  text-align: center;
+  margin: 3%;
+}
 
- .quiz-links:hover {
-   font-weight: bold;
- }
+.quiz-links:hover {
+  font-weight: bold;
+}
 
- .success-create{
-   text-align: center;
- }
+.success-create{
+  text-align: center;
+}
 
- .waiting-text{
-   text-align: center;
-  color: black;
- }
+.waiting-text{
+  text-align: center;
+color: black;
+}
+
+.OptionsListWrapper{
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+}
+
+.gameplay button:nth-child(1) {
+  background-color: #e21a3b;
+}
+.gameplay button:nth-child(2) {
+  background-color: #1267ce;
+}
+
+.gameplay button:nth-child(3) {
+  background-color: #d89d02;
+}
+
+.gameplay button:nth-child(4) {
+  background-color: #27890d;
+}
+/* .opt-1 {
+  background-color: #e21a3b;
+}
+
+.opt-2 {
+  background-color: #1267ce;
+}
+
+.opt-3 {
+  background-color: #d89d02;
+}
+
+.opt-4 {
+  background-color: #27890d;
+} */
