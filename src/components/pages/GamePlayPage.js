@@ -65,7 +65,7 @@ class GamePlayPage extends Component {
 
           axios.put(
             `https://gahoot-server.herokuapp.com/users/${this.state.player.id}.json`,
-            { score: this.state.score + Math.floor(Math.random() * 100) }
+            { score: this.state.score + 73 }
           );
         });
     } else {
@@ -76,11 +76,11 @@ class GamePlayPage extends Component {
   renderGame = () => {
     // console.log(this.props.startGame);
     if(this.props.startGame === false){
-      return <GameWrapper>"Waiting on "</GameWrapper>
+      return <div class="display">"Waiting on "</div>
     }
 
     if (this.state.activeQuestion === this.state.questions.length) {
-      return <div class="winner">"AND THE WINNER IS..."</div>
+      return <div class="display"> <h1>"AND THE WINNER IS..."</h1></div>
     }
 
     // console.log(this.state.roundOver); //true

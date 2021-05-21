@@ -16,7 +16,7 @@ const OptionsButton = styled.button`
   background: cornsilk;
   display: flex;
   justify-content: center;
-  color: black;
+  color: white;
   font-family: Cabin Sketch;
   font-size: 2.2rem;
   font-weight: bold;
