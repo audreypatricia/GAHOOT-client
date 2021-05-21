@@ -4,7 +4,7 @@ import OptionList from "../OptionList";
 import TimeCircle from "../TimeCircle";
 import ScoreBoard from "../Scoreboard/scoreboard.js";
 import axios from "axios";
-// import { CloudinaryContext, Transformation, Image } from ‘cloudinary-react’;
+import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
 
 import styled from "styled-components";
 import { render } from "react-dom";
@@ -90,6 +90,17 @@ class GamePlayPage extends Component {
           question={this.state.questions[this.state.activeQuestion].question}
         />
         <TimeCircle duration={10} timeoutFn={this.updateQuestion} />
+        <CloudinaryContext cloudName="paulyc">
+        <Image publicId={this.state.questions[this.state.activeQuestion].image}>
+          <Transformation
+            crop="scale"
+            width="300"
+            height="200"
+            dpr="auto"
+            responsive_placeholder="blank"
+          />
+        </Image>
+        </CloudinaryContext>
         <OptionList
           answer_options={
             this.state.questions[this.state.activeQuestion].answer_options
