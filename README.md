@@ -1,6 +1,9 @@
 # Project 2 - GAHOOT
 
-### Click here to see our Kahoot clone: [GAHOOT](https://gahoot-client.herokuapp.com/host-sign-in)
+#### Click here to see our Kahoot clone as a host [GAHOOT-host](https://gahoot-client.herokuapp.com/host-sign-in) or here to sign in as a player: [GAHOOT-player](https://gahoot-client.herokuapp.com/player-sign-in)
+
+#### <u>Link to GAHOOT-server</u>
+View the project backend made with Ruby on Rails [here](github.com/audreypatricia/GAHOOT-server)
 
 #### <u>Overview:</u>
 
@@ -14,9 +17,9 @@ We agreed on using React for our front end and divided up the components for eac
 
 #### <u>How to play:</u>
 
- To play you need someone to be a host of the game. They sign up as a host through the homepage and then select a quiz from the quiz index page. Once they select play on a quiz they are taken to the game start page that displays a box showing a pin. The host then needs to click create game under the pin to start the game off.
+ To play you need someone to be a host of the game. They sign up as a host through the homepage and then select a quiz from the quiz index page. Once they select play on a quiz they are taken to the game start page where they then need to click "create game" to create a game for other players to enter.
 
- Once clicked the pin can be distributed to players who sign in through the player sign in option on the home page. They are then added to the game on the back end and once all players have signed in (which the host can see) the host then clicks the start game button. The quiz questions will render on all player's screens and they then simply need to select the correct answer and flow through the questions until the quiz is over.
+ Once clicked the pin can be distributed to players who then sign in via the "player sign-in" option on the home page. Once all players have signed in (which the host can see) the host then clicks the "start game" button. The quiz questions will render on all player's screens and they then simply need to select the correct answer and flow through the questions until the quiz is over. Scores can be viewed on the Host's screen as players fight to win the championship title!
 
 #### <u>Things we love:</u>
 * The learning experiences including:
@@ -35,8 +38,7 @@ We agreed on using React for our front end and divided up the components for eac
 * Passing data through React components
 
 #### <u> Stretch Goals:</u>
-* Using cloudinary to display images on React
-* Capturing the time and adding to players score
+* Capturing the time and adding this to players as their score
 
 #### <u>Tech Stack:</u>
 * HTML/CSS
@@ -46,10 +48,15 @@ We agreed on using React for our front end and divided up the components for eac
 * Heroku
 * Cloudinary
 
+#### <u>Future Improvements:</u>
+* clearing out player database every so often, so player names do not always have to be unique
+* setting score for each correct answer based on how fast questions are answered
+* allowing for the host to be able to share their screen of questions and players viewing only answer options
+
 ## Our Awesome Team!
 
 ![Team](https://github.com/audreypatricia/GAHOOT-client/blob/main/src/images/team.jpg)\
-![Paul](https://github.com/audreypatricia/GAHOOT-client/blob/main/src/images/Paul.png)
+
 
 
 ## Created by Audrey, David, Katie, Paul and Sam

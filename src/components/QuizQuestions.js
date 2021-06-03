@@ -114,6 +114,7 @@ class QuizQuestions extends Component {
     this._onChange = this._onChange.bind(this);
     this.createQuestion = this.createQuestion.bind(this);
     this._handleQuizChange = this._handleQuizChange.bind(this);
+    this.resetQuiz = this.resetQuiz.bind(this);
   }
 
   _handleChange(event, i) {
@@ -144,6 +145,113 @@ class QuizQuestions extends Component {
       questions[i - 1] = questionItem;
       return { questions };
     });
+  }
+
+  resetQuiz() {
+    this.setState({
+      created: false,
+      quiz: {
+        title: "",
+        category: "",
+        username: "",
+        user_id: this.props.user.id,
+      }, // TODO: need to get user_id from session
+      questions: [
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer1: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer2: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer3: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer4: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer5: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer6: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer7: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer8: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer9: "",
+        },
+        {
+          question: "",
+          image: "",
+          option1: "",
+          option2: "",
+          option3: "",
+          option4: "",
+          answer10: "",
+        },
+      ],
+      user: this.props.user,
+
+
+     });
   }
 
   createQuestion(event) {
@@ -196,27 +304,29 @@ class QuizQuestions extends Component {
     form.append("quiz", JSON.stringify(this.state.quiz));
     form.append("questions", JSON.stringify(questionData));
 
-    // console.log(...form);
+    console.log(...form);
 
-    fetch(`https://gahoot-server.herokuapp.com/questions.json`, {
+    // https://gahoot-server.herokuapp.com/questions.json
+    fetch(`http://localhost:3001/questions.json`, {
       method: "POST",
       body: form,
       referrerPolicy: "origin-when-cross-origin",
     })
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         this.setState({ created: true });
       })
       .catch((error) => {
         // console.log(error.message);
       });
+
   }
 
   render() {
     // console.log(`quiz questions User: ${this.state.user}`);
     return (
       <div className="QuizCreateContainer">
-        <form className="createQuiz" onSubmit={this.createQuestion}>
+        <form className={`createQuiz ${this.state.created ? "hidden": ""}`} onSubmit={this.createQuestion}>
           <QuizDetails
             onChange={this._handleQuizChange}
             user={this.state.user}
@@ -277,7 +387,7 @@ class QuizQuestions extends Component {
         </form>
         <div className={`success-create ${this.state.created ? "": "hidden"}`} >
           <h2>Quiz Created!</h2>
-          <Link className="quiz-links" to={'quiz-create'}>Create Another Quiz?</Link>
+          <Link onClick={this.resetQuiz} className="quiz-links" to={'quiz-create'}>Create Another Quiz?</Link>
           <Link className="quiz-links" to={'quiz-index'}>Quiz Index</Link>
         </div>
       </div>

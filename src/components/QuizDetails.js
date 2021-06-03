@@ -29,7 +29,7 @@ class QuizDetails extends Component {
   }
 
   render() {
-    console.log(this.state.user);
+    // console.log(this.state.user);
     return (
       <form className="question" onSubmit={this._handleSubmit}>
         <div className="quizTitle">

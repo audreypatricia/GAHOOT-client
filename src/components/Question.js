@@ -5,13 +5,13 @@ class Question extends Component {
     super();
     this.state = {
       questionItem: {
-        question: "empty",
-        image: "empty",
-        option1: "empty",
-        option2: "empty",
-        option3: "empty",
-        option4: "empty",
-        answer: "empty",
+        question: "",
+        image: "",
+        option1: "",
+        option2: "",
+        option3: "",
+        option4: "",
+        answer: "",
       },
     };
     this._handleChange = this._handleChange.bind(this);
@@ -35,13 +35,14 @@ class Question extends Component {
           onChange={this._handleChange}
           name="question"
           placeholder="What is 1 + 1?"
+          required
         />
 
         <br />
 
         <label className="imageUploadLabel">Image Upload</label>
         <div className="imageUpload">
-          <input type="file" name="image" onChange={this._onChange} />
+          <input type="file" name="image" onChange={this._onChange} required/>
         </div>
         <br />
 
